@@ -7,7 +7,9 @@ async function bootstrap() {
 
   const config = new DocumentBuilder()
     .setTitle('ATM Crackers API')
-    .setDescription('API documentation for the ATM Crackers Online Ordering System')
+    .setDescription(
+      'API documentation for the ATM Crackers Online Ordering System',
+    )
     .setVersion('1.0')
     .build();
 
@@ -22,4 +24,4 @@ async function bootstrap() {
   console.log(`ATM Crackers Backend running on port ${port}`);
 }
 
-bootstrap();
+void bootstrap();

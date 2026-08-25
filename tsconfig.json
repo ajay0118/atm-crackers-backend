@@ -11,15 +11,21 @@
     "experimentalDecorators": true,
     "allowSyntheticDefaultImports": true,
     "target": "ES2023",
-    "sourceMap": true,
+    "sourceMap": false,
     "outDir": "./dist",
     "baseUrl": "./",
+    "paths": {
+      "@libs/contracts/*": ["libs/contracts/src/*"]
+    },
     "incremental": true,
     "skipLibCheck": true,
     "strictNullChecks": true,
+    "strictPropertyInitialization": false,
     "forceConsistentCasingInFileNames": true,
     "noImplicitAny": false,
     "strictBindCallApply": false,
-    "noFallthroughCasesInSwitch": false
+    "useUnknownInCatchVariables": false,
+    "noFallthroughCasesInSwitch": false,
+    "types": ["jest", "node", "express"]
   }
 }

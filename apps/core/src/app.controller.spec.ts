@@ -15,8 +15,8 @@ describe('AppController', () => {
   });
 
   describe('root', () => {
-    it('should return "Hello World!"', () => {
-      expect(appController.getHello()).toBe('Hello World!');
+    it('should return the running status message', () => {
+      expect(appController.getHello()).toBe('ATM Crackers Shop API is running');
     });
   });
 });

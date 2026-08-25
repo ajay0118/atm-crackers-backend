@@ -1,0 +1,383 @@
+{
+  "defaults": {
+    "categoryImageUrl": "https://placehold.co/720x720/F5A623/111827?text=ATM+Crackers",
+    "productImageUrl": "https://placehold.co/600x600/F5A623/111827?text=ATM+Crackers"
+  },
+  "categories": [
+    {
+      "name": "ONE SOUND CRACKERS",
+      "products": [
+        { "name": "4 INCH GOLD LAXMI", "unit": "1 Pkt", "mrp": 295 },
+        { "name": "2 3/4 KURUVI", "unit": "1 Pkt", "mrp": 88 },
+        { "name": "3 1/2 LAXMI", "unit": "1 Pkt", "mrp": 105 },
+        { "name": "4 INCH LAXMI", "unit": "1 Pkt", "mrp": 155 },
+        { "name": "4 INCH ROCK DELUXE (12 PLY)", "unit": "1 Pkt", "mrp": 340 },
+        { "name": "5 INCH POWER (14 PLY)", "unit": "1 Pkt", "mrp": 440 },
+        { "name": "6 INCH ATM SPL (18 PLY)", "unit": "1 Pkt", "mrp": 615 }
+      ]
+    },
+    {
+      "name": "SUPER SONIC BOMBS",
+      "products": [
+        { "name": "BULLET BOMB (10 PCS)", "unit": "1 Box", "mrp": 210 },
+        { "name": "ATOM BOMB (10 PCS)", "unit": "1 Box", "mrp": 490 },
+        { "name": "HYDRO BOMB (10 PCS)", "unit": "1 Box", "mrp": 570 },
+        { "name": "KING OF KING (10 PCS)", "unit": "1 Box", "mrp": 980 },
+        { "name": "DRAGON BOMB (10 PCS)", "unit": "1 Box", "mrp": 1840 },
+        { "name": "THUNDER MEGA BOMB (10 PCS)", "unit": "1 Box", "mrp": 2380 }
+      ]
+    },
+    {
+      "name": "ATM SPECIAL PAPER BOMB",
+      "products": [
+        { "name": "ATM KING BOMB - 1", "unit": "1 Box", "mrp": 650 },
+        { "name": "ATM KING BOMB - 2", "unit": "1 Box", "mrp": 1300 },
+        { "name": "ATM KING BOMB - 3", "unit": "1 Box", "mrp": 2300 },
+        { "name": "ATM SPECIAL BOMB (10 PCS)", "unit": "1 Box", "mrp": 3200 },
+        { "name": "ATM COLOUR BOMB", "unit": "1 Box", "mrp": 810 }
+      ]
+    },
+    {
+      "name": "GUN SOUND EFFECT",
+      "products": [
+        { "name": "TWO SOUND", "unit": "1 Pkt", "mrp": 360 },
+        { "name": "THREE SOUND", "unit": "1 Pkt", "mrp": 550 }
+      ]
+    },
+    {
+      "name": "ATM GRAND VARNAM SERIES",
+      "products": [
+        { "name": "100 VARNAM", "unit": "1 Box", "mrp": 440 },
+        { "name": "200 VARNAM", "unit": "1 Box", "mrp": 880 },
+        { "name": "1000 VARNAM", "unit": "1 Box", "mrp": 2200 },
+        { "name": "2000 VARNAM", "unit": "1 Box", "mrp": 4600 },
+        { "name": "5000 VARNAM", "unit": "1 Box", "mrp": 11500 },
+        { "name": "10000 VARNAM", "unit": "1 Box", "mrp": 22300 },
+        { "name": "ATM GRAND 20000 VARNAM", "unit": "1 Box", "mrp": 42000 }
+      ]
+    },
+    {
+      "name": "ATM MINI GRAND SERIES",
+      "products": [
+        { "name": "28 - CHILLI", "unit": "1 Pkt", "mrp": 165 },
+        { "name": "56 - CHILLI", "unit": "1 Pkt", "mrp": 330 },
+        { "name": "28 - POWER CHILLI", "unit": "1 Pkt", "mrp": 250 },
+        { "name": "56 - POWER CHILLI", "unit": "1 Pkt", "mrp": 500 }
+      ]
+    },
+    {
+      "name": "ATM ROYAL DELUXE SERIES",
+      "products": [
+        { "name": "24 - WATTS", "unit": "1 Pkt", "mrp": 320 },
+        { "name": "50 - WATTS", "unit": "1 Pkt", "mrp": 640 },
+        { "name": "100 - WATTS", "unit": "1 Pkt", "mrp": 1930 }
+      ]
+    },
+    {
+      "name": "ATM GOLDEN MONEY SERIES",
+      "products": [
+        { "name": "NEW LUCKY BASKER (3 PCS)", "unit": "1 Box", "mrp": 1430 },
+        { "name": "MONEY HEIST (2 PCS)", "unit": "1 Box", "mrp": 2350 }
+      ]
+    },
+    {
+      "name": "SKY KING ROCKET SERIES",
+      "products": [
+        { "name": "STAR ROCKET (10 PCS)", "unit": "1 Box", "mrp": 345 },
+        { "name": "ROCKET BOMB (10 PCS)", "unit": "1 Box", "mrp": 595 },
+        { "name": "AIR LUNIK ROCKET (10 PCS)", "unit": "1 Box", "mrp": 1050 },
+        { "name": "SINGING ROCKET (10 PCS)", "unit": "1 Box", "mrp": 1890 },
+        { "name": "2025 ATM SKY SPECIAL ROCKET (6PCS)", "unit": "1 Box", "mrp": 5050 }
+      ]
+    },
+    {
+      "name": "ULTRA BIJILI SERIES",
+      "products": [
+        { "name": "MINI BIJILI (50 PCS)", "unit": "1 Pkt", "mrp": 150 },
+        { "name": "RED BIJILI (100 PCS)", "unit": "1 Pkt", "mrp": 395 },
+        { "name": "STRIPPED BIJILI (100 PCS)", "unit": "1 Pkt", "mrp": 400 }
+      ]
+    },
+    {
+      "name": "GALAXY COLOUR CELEBRATION",
+      "products": [
+        { "name": "RAINBOW COLOUR SMOKE", "unit": "1 Box", "mrp": 1800 },
+        { "name": "ATM SPECIAL COLOUR SMOKE", "unit": "1 Box", "mrp": 2050 }
+      ]
+    },
+    {
+      "name": "2025 ATM SPECIAL NEW ARRIVAL",
+      "products": [
+        { "name": "RAINBOW RIDER (15 - SHOT)", "unit": "1 Box", "mrp": 6300 },
+        { "name": "MUSICAL EGG (2 PCS)", "unit": "1 Box", "mrp": 1620 }
+      ]
+    },
+    {
+      "name": "STREET GANA SERIES",
+      "products": [
+        { "name": "MINI SIREN (5 PCS)", "unit": "1 Box", "mrp": 1510 },
+        { "name": "MEGA SIREN (3 PCS)", "unit": "1 Box", "mrp": 1820 }
+      ]
+    },
+    {
+      "name": "ATM MAGIC LIGHT FESTIVAL",
+      "products": [
+        { "name": "FLOWER POT SMALL (10 PCS)", "unit": "1 Box", "mrp": 460 },
+        { "name": "FLOWER POT BIG (10 PCS)", "unit": "1 Box", "mrp": 585 },
+        { "name": "FLOWER POT SPECIAL (10 PCS)", "unit": "1 Box", "mrp": 880 },
+        { "name": "FLOWER POT ASHOKA (10 PCS)", "unit": "1 Box", "mrp": 980 },
+        { "name": "O-YOLO WHITE (2 PCS)", "unit": "1 Box", "mrp": 1820 },
+        { "name": "FLOWER POT COLOUR KOTTI (10 PCS)", "unit": "1 Box", "mrp": 2150 }
+      ]
+    },
+    {
+      "name": "STAR POTS SERIES",
+      "products": [
+        { "name": "BHART KOTI (2PCS)", "unit": "1 Box", "mrp": 2450 },
+        { "name": "GYPSY POTS (5 PCS)", "unit": "1 Box", "mrp": 1720 },
+        { "name": "VOLCOONA COLOUR POTS (10 PCS)", "unit": "1 Box", "mrp": 6200 },
+        { "name": "JUMPO FLOWER POTS (10 PCS)", "unit": "1 Box", "mrp": 6900 }
+      ]
+    },
+    {
+      "name": "2025 ATM CRYSTAL POTS",
+      "products": [
+        { "name": "RANG LAVA", "unit": "1 Box", "mrp": 1050 },
+        { "name": "COLOUR TREE POTS", "unit": "1 Box", "mrp": 1680 },
+        { "name": "FLOWER BOMB (5 PCS)", "unit": "1 Box", "mrp": 1020 },
+        { "name": "NANO TRICOLOUR (5 PCS)", "unit": "1 Box", "mrp": 2100 },
+        { "name": "MONO TRICOLOUR (5 PCS)", "unit": "1 Box", "mrp": 2490 }
+      ]
+    },
+    {
+      "name": "ROYAL COLOUR FLOWER POTS",
+      "products": [
+        { "name": "CHAKAR BASIC (10 PCS)", "unit": "1 Box", "mrp": 360 },
+        { "name": "CHAKKAR ASHOKA (10 PCS)", "unit": "1 Box", "mrp": 730 },
+        { "name": "CHAKAR SPECIAL (10 PCS)", "unit": "1 Box", "mrp": 780 },
+        { "name": "CHAKKAR DELUXE (10 PCS)", "unit": "1 Box", "mrp": 1580 },
+        { "name": "WIN WHEEL SUPER MAX (10 PCS)", "unit": "1 Box", "mrp": 1820 }
+      ]
+    },
+    {
+      "name": "SUPER CHAKKAR FESTIVAL",
+      "products": [
+        { "name": "SINGING WHEEL (5 PCS)", "unit": "1 Box", "mrp": 1130 },
+        { "name": "JOLLY WHEEL (5 PCS)", "unit": "1 Box", "mrp": 1330 },
+        { "name": "RING RING SPEED (5 PCS)", "unit": "1 Box", "mrp": 1620 },
+        { "name": "FLOWER WHEEL (4 PCS)", "unit": "1 Box", "mrp": 1950 }
+      ]
+    },
+    {
+      "name": "2025 NEW ARRIVAL SPINNER",
+      "products": [
+        { "name": "ZEE BOOM BAA (10 PCS)", "unit": "1 Box", "mrp": 92 },
+        { "name": "MAGIC BOBBS (10 PCS)", "unit": "1 Box", "mrp": 92 },
+        { "name": "ELECTRIC STONE (10 PCS)", "unit": "1 Box", "mrp": 95 },
+        { "name": "ANIMAL CARTOON (10 PCS)", "unit": "1 Box", "mrp": 260 },
+        { "name": "SNAKE TABLET (10 PCS)", "unit": "1 Box", "mrp": 265 },
+        { "name": "TIM TOM (10 PCS)", "unit": "1 Box", "mrp": 320 },
+        { "name": "JUMPING BUTTERFLY (10 PCS)", "unit": "1 Box", "mrp": 690 },
+        { "name": "ROTATING SPINNER (10 PCS)", "unit": "1 Box", "mrp": 1050 },
+        { "name": "PHOTO FLASH (5 PCS)", "unit": "1 Box", "mrp": 640 },
+        { "name": "SELFIE STICK (3 PCS)", "unit": "1 Box", "mrp": 552 },
+        { "name": "COLOUR RAIN (5 PCS)", "unit": "1 Box", "mrp": 948 },
+        { "name": "90 WATTS (3 PCS)", "unit": "1 Box", "mrp": 1170 },
+        { "name": "2025 ATM BAT & BALL", "unit": "1 Box", "mrp": 2380 }
+      ]
+    },
+    {
+      "name": "HAPPY KIDS FESTIVAL",
+      "products": [
+        { "name": "DRONE CAMERA (5 PCS)", "unit": "1 Box", "mrp": 1560 },
+        { "name": "DEFENCE HELICOPTER (5 PCS)", "unit": "1 Box", "mrp": 920 }
+      ]
+    },
+    {
+      "name": "FLYING SERIES",
+      "products": [
+        { "name": "MAGICAL PEACOCK", "unit": "1 Box", "mrp": 1520 },
+        { "name": "BADA PEACOCK", "unit": "1 Box", "mrp": 5550 },
+        { "name": "FLY MAGIC FOUNTAIN (6 PCS)", "unit": "1 Box", "mrp": 1800 },
+        { "name": "TEEN TITANS FOUNTAIN (6 PCS)", "unit": "1 Box", "mrp": 1780 },
+        { "name": "JUNGLE BUBBLERS (5 PCS)", "unit": "1 Box", "mrp": 2480 },
+        { "name": "K.JOT FOUNTAIN (5 PCS)", "unit": "1 Box", "mrp": 1640 },
+        { "name": "HI-FI FOUNTAIN (5 PCS)", "unit": "1 Box", "mrp": 1810 },
+        { "name": "STAR MIX FOUNTAIN (5 PCS)", "unit": "1 Box", "mrp": 1550 }
+      ]
+    },
+    {
+      "name": "DELIGHT SERIES",
+      "products": [
+        { "name": "POPCORN PENCIL (3 PCS)", "unit": "1 Box", "mrp": 650 },
+        { "name": "ELECTRIC PENCIL (3 PCS)", "unit": "1 Box", "mrp": 1430 },
+        { "name": "WIZZARD WAND PENCIL (5 PCS)", "unit": "1 Box", "mrp": 1650 }
+      ]
+    },
+    {
+      "name": "SPARK PENCIL DELIGHTS",
+      "products": [
+        { "name": "MINI SODA TIN", "unit": "1 Pcs", "mrp": 1380 },
+        { "name": "TOUCH ME FALLS", "unit": "1 Pcs", "mrp": 1300 },
+        { "name": "WINTER RAIN", "unit": "1 Pcs", "mrp": 1620 },
+        { "name": "8 INCH MEGA COLOURFULL TIN", "unit": "1 Pcs", "mrp": 1850 }
+      ]
+    },
+    {
+      "name": "COOL DRINK TIN FOUNTAIN",
+      "products": [
+        { "name": "MINI POCO FOUNTAIN", "unit": "1 Box", "mrp": 255 },
+        { "name": "TEDDY FOUNTAIN", "unit": "1 Box", "mrp": 490 },
+        { "name": "DISCO SHOWER (5 PCS)", "unit": "1 Box", "mrp": 1100 },
+        { "name": "KRACK JACK FOUNTAIN", "unit": "1 Box", "mrp": 2480 },
+        { "name": "COLOUR CHANGING FLOWER (3PCS)", "unit": "1 Box", "mrp": 1650 },
+        { "name": "CRACKLING FOUNTAIN (3 PCS)", "unit": "1 Box", "mrp": 2880 }
+      ]
+    },
+    {
+      "name": "ROYAL COLOUR FOUNTAIN",
+      "products": [
+        { "name": "1 INCH CHOTTA FANCY", "unit": "1 Box", "mrp": 390 },
+        { "name": "2 INCH COOLIE FANCY", "unit": "1 Box", "mrp": 960 },
+        { "name": "2 INCH (3 PCS) GBU FANCY", "unit": "1 Box", "mrp": 2580 },
+        { "name": "3 1/2 MONSTER FANCY", "unit": "1 Box", "mrp": 2550 },
+        { "name": "4 INCH THUNDER FANCY", "unit": "1 Box", "mrp": 3950 },
+        { "name": "4 INCH (2PCS) RETRO FANCY", "unit": "1 Box", "mrp": 8650 },
+        { "name": "4 INCH (3 PCS) GAMBLING FANCY", "unit": "1 Box", "mrp": 13350 },
+        { "name": "5 INCH GANGSTAR FANCY", "unit": "1 Box", "mrp": 6200 },
+        { "name": "6 INCH WOLF FANCY", "unit": "1 Box", "mrp": 9800 }
+      ]
+    },
+    {
+      "name": "KING OF ATM FANCY SERIES",
+      "products": [
+        { "name": "3 - STEP FANCY", "unit": "1 Box", "mrp": 2050 },
+        { "name": "12 - STEP FANCY", "unit": "1 Box", "mrp": 4100 },
+        { "name": "DOUBLE BALL FANCY", "unit": "1 Box", "mrp": 2200 },
+        { "name": "NAYAGRA FALLS FANCY", "unit": "1 Box", "mrp": 3950 },
+        { "name": "COLOUR NAYAGRA FALLS FANCY", "unit": "1 Box", "mrp": 4100 },
+        { "name": "2025 - WELCOME PARTY", "unit": "1 Box", "mrp": 3950 },
+        { "name": "3 1/2 SPL (PINK,BLUE,LAVENDER)FANCY", "unit": "1 Box", "mrp": 3850 }
+      ]
+    },
+    {
+      "name": "ATM FESTIVAL NIGHTS",
+      "products": [
+        { "name": "COLOUR COLLECTION (5 PCS)", "unit": "1 Box", "mrp": 1550 },
+        { "name": "COLOUR COLLECTION (10 PCS)", "unit": "1 Box", "mrp": 2250 },
+        { "name": "MERY CO MERY (3 PCS)", "unit": "1 Box", "mrp": 1980 }
+      ]
+    },
+    {
+      "name": "WONDERFULL MINI FANCY",
+      "products": [
+        { "name": "7 WONDERFULL SHOTS", "unit": "1 Box", "mrp": 1020 },
+        { "name": "12 SHOTS CRACKLING", "unit": "1 Box", "mrp": 1580 },
+        { "name": "25 MAGICAL SHOTS", "unit": "1 Box", "mrp": 2300 },
+        { "name": "30 SHOTS MULTICOLOR", "unit": "1 Box", "mrp": 3950 },
+        { "name": "60 SHOTS MULTICOLOR", "unit": "1 Box", "mrp": 7820 },
+        { "name": "120 SHOTS MULTICOLOR", "unit": "1 Box", "mrp": 14900 },
+        { "name": "240 SHOTS MULTICOLOR", "unit": "1 Box", "mrp": 33200 },
+        { "name": "ATM STAR NIGHT 500 MULTICOLOR SHOTS", "unit": "1 Box", "mrp": 68000 }
+      ]
+    },
+    {
+      "name": "ATM REPEATING MULTICOLOUR SHOTS",
+      "products": [
+        { "name": "SINGING DOLLS (10 - SHOTS)", "unit": "1 Box", "mrp": 2450 },
+        { "name": "25 - DJ PARTY", "unit": "1 Box", "mrp": 7400 },
+        { "name": "LOVE DOSE (6 - SHOTS)", "unit": "1 Box", "mrp": 1480 }
+      ]
+    },
+    {
+      "name": "2025 MUSICAL BEATS",
+      "products": [
+        { "name": "THAR (2 PCS)", "unit": "1 Box", "mrp": 1850 },
+        { "name": "POPCORN FOUNTAIN (2 PCS)", "unit": "1 Box", "mrp": 1800 },
+        { "name": "SKY PANT (3 PCS)", "unit": "1 Box", "mrp": 1980 },
+        { "name": "CANONBALL", "unit": "1 Box", "mrp": 1780 },
+        { "name": "LAZZER SHOW", "unit": "1 Box", "mrp": 1080 },
+        { "name": "ATM SWORD", "unit": "1 Box", "mrp": 1380 },
+        { "name": "SUN DROOPS (5 PCS)", "unit": "1 Box", "mrp": 1250 },
+        { "name": "MOON DROOPS (5 PCS)", "unit": "1 Box", "mrp": 1250 },
+        { "name": "STAR DROOPS (5 PCS)", "unit": "1 Box", "mrp": 1250 },
+        { "name": "WIRE CHAKKAR (10 PCS)", "unit": "1 Box", "mrp": 1750 }
+      ]
+    },
+    {
+      "name": "2025 NEW ARRIVALS",
+      "products": [
+        { "name": "1 1/2 TWINKLING STAR (10 PCS)", "unit": "1 Box", "mrp": 230 },
+        { "name": "4 INCH TWINKLING STAR (10 PCS)", "unit": "1 Box", "mrp": 590 },
+        { "name": "PINK COLOUR ROPE", "unit": "1 Box", "mrp": 1760 }
+      ]
+    },
+    {
+      "name": "ROPE COLOUR SERIES",
+      "products": [
+        { "name": "PEACOCK DANCE (30 SHOTS)", "unit": "1 Box", "mrp": 6300 },
+        { "name": "6X10 FIRING SHOT", "unit": "1 Box", "mrp": 22000 },
+        { "name": "10X10 DAMAKA IPL SHOT", "unit": "1 Box", "mrp": 43000 }
+      ]
+    },
+    {
+      "name": "MEGA CELEBRATION SHOTS",
+      "products": [
+        { "name": "HAPPY WHEEL (9 SHOT)", "unit": "1 Box", "mrp": 7200 },
+        { "name": "SIZZILING MAX (15 SHOT)", "unit": "1 Box", "mrp": 7600 },
+        { "name": "VIKRAM GUN SHOTTER", "unit": "1 Box", "mrp": 6050 },
+        { "name": "CANDY CRASH (9 - SHOT)", "unit": "1 Box", "mrp": 7200 },
+        { "name": "2 INCH SPECIAL SETOUT", "unit": "1 Box", "mrp": 28000 }
+      ]
+    },
+    {
+      "name": "COLOURFUL SETOUT CELEBRATION",
+      "products": [
+        { "name": "PIRATES GUN", "unit": "1 Box", "mrp": 580 },
+        { "name": "ROLLING GUN", "unit": "1 Box", "mrp": 690 },
+        { "name": "AK - 47 GUN", "unit": "1 Box", "mrp": 2380 },
+        { "name": "ROLL CAP", "unit": "1 Box", "mrp": 705 },
+        { "name": "RING CAP", "unit": "1 Box", "mrp": 95 }
+      ]
+    },
+    {
+      "name": "MEGA SHOOTER GUN SERIES",
+      "products": [
+        { "name": "7 CM ELECTRIC SPARKLERS", "unit": "1 Box", "mrp": 84 },
+        { "name": "7 CM COLOUR SPARKLERS", "unit": "1 Box", "mrp": 86 },
+        { "name": "7 CM GREEN SPARKLERS", "unit": "1 Box", "mrp": 88 },
+        { "name": "7 CM RED SPARKLERS", "unit": "1 Box", "mrp": 90 },
+        { "name": "10 CM ELECTRIC SPARKLERS", "unit": "1 Box", "mrp": 148 },
+        { "name": "10 CM COLOUR SPARKLERS", "unit": "1 Box", "mrp": 150 },
+        { "name": "10 CM GREEN SPARKLERS", "unit": "1 Box", "mrp": 164 },
+        { "name": "10 CM RED SPARKLERS", "unit": "1 Box", "mrp": 195 },
+        { "name": "15 CM ELECTRIC SPARKLERS", "unit": "1 Box", "mrp": 390 },
+        { "name": "15 CM COLOUR SPARKLERS", "unit": "1 Box", "mrp": 420 },
+        { "name": "15 CM GREEN SPARKLERS", "unit": "1 Box", "mrp": 465 },
+        { "name": "15 CM RED SPARKLERS", "unit": "1 Box", "mrp": 520 },
+        { "name": "30 CM ELECTRIC SPARKLERS", "unit": "1 Box", "mrp": 390 },
+        { "name": "30 CM COLOUR SPARKLERS", "unit": "1 Box", "mrp": 420 },
+        { "name": "30 CM GREEN SPARKLERS", "unit": "1 Box", "mrp": 465 },
+        { "name": "30 CM RED SPARKLERS", "unit": "1 Box", "mrp": 520 }
+      ]
+    },
+    {
+      "name": "RAINBOW COLOUR SPARKLERS",
+      "products": [
+        { "name": "(PINK,BLUE,GOLD) SPARKLERS", "unit": "1 Box", "mrp": 690 },
+        { "name": "HEARTIN SPARKLERS", "unit": "1 Box", "mrp": 1100 },
+        { "name": "NANO SPARKLERS", "unit": "1 Box", "mrp": 480 },
+        { "name": "ROTATING SPARKLERS MULTICOLOUR", "unit": "1 Box", "mrp": 2380 },
+        { "name": "50 CM ELECTRIC SPARKLERS", "unit": "1 Box", "mrp": 1780 },
+        { "name": "50 CM COLOUR SPARKLERS", "unit": "1 Box", "mrp": 1900 }
+      ]
+    },
+    {
+      "name": "2025 NEW ARRIVAL SPARKLERS",
+      "products": [
+        { "name": "SEVEN UP MATCHES", "unit": "1 Box", "mrp": 1700 },
+        { "name": "ROBIN MEGA MATCHES", "unit": "1 Box", "mrp": 2310 }
+      ]
+    }
+  ]
+}

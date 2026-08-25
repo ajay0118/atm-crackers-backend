@@ -1,9 +1,11 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { MongooseModule } from '@nestjs/mongoose';
+import { Connection } from 'mongoose';
 
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
+import { CatalogueModule } from './catalogue/catalogue.module';
 
 @Module({
   imports: [
@@ -17,8 +19,8 @@ import { AppService } from './app.service';
       useFactory: (configService: ConfigService) => ({
         uri: configService.get<string>('MONGODB_URI'),
         serverSelectionTimeoutMS: 10000,
-        
-        connectionFactory: (connection) => {
+
+        connectionFactory: (connection: Connection) => {
           connection.on('connected', () => {
             console.log('MongoDB connected successfully');
           });
@@ -31,6 +33,7 @@ import { AppService } from './app.service';
         },
       }),
     }),
+    CatalogueModule,
   ],
   controllers: [AppController],
   providers: [AppService],
