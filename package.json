@@ -6,20 +6,20 @@
   "private": true,
   "license": "UNLICENSED",
   "scripts": {
-    "build": "nest build",
+    "build": "nest build && tsc-alias -p tsconfig.json",
     "format": "prettier --write \"apps/**/*.ts\" \"libs/**/*.ts\" \"test/**/*.ts\"",
     "start": "nest start core",
     "start:dev": "nest start core --watch",
     "start:core": "nest start core",
     "start:debug": "nest start core --debug --watch",
-    "start:prod": "node -r ts-node/register -r tsconfig-paths/register apps/core/src/main.ts",
+    "start:prod": "node dist/apps/core/src/main.js",
     "lint": "eslint \"{apps,libs,test}/**/*.ts\" --fix",
     "test": "jest",
     "test:watch": "jest --watch",
     "test:cov": "jest --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
-    "test:e2e": "jest --config ./test/jest-e2e.json"
-    ,"catalogue:import:new": "ts-node -r tsconfig-paths/register apps/core/src/catalogue/catalogue-import-new.ts"
+    "test:e2e": "jest --config ./test/jest-e2e.json",
+    "catalogue:import:new": "ts-node -r tsconfig-paths/register apps/core/src/catalogue/catalogue-import-new.ts"
   },
   "dependencies": {
     "@nestjs/common": "^11.0.1",
@@ -55,6 +55,7 @@
     "ts-jest": "^29.2.5",
     "ts-loader": "^9.5.2",
     "ts-node": "^10.9.2",
+    "tsc-alias": "^1.9.5",
     "tsconfig-paths": "^4.2.0",
     "typescript": "^5.7.3",
     "typescript-eslint": "^8.20.0"
