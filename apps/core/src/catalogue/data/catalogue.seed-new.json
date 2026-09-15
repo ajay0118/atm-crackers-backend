@@ -1,0 +1,2109 @@
+{
+  "catalogueVersion": "2026",
+  "sourceFile": "ATM crackers pricelist 2026-2.pdf",
+  "categories": [
+    {
+      "name": "ONE SOUND CRACKERS",
+      "slug": "one-sound-crackers",
+      "description": "",
+      "displayOrder": 1,
+      "products": [
+        {
+          "name": "4\" GOLD LAXMI (10 Ply)",
+          "slug": "4-gold-laxmi-10-ply",
+          "unit": "1 Pkt",
+          "mrp": 285.00,
+          "discountPercent": 0,
+          "displayOrder": 1
+        },
+        {
+          "name": "2 3/4 KURUVI",
+          "slug": "2-3-4-kuruvi",
+          "unit": "1 Pkt",
+          "mrp": 85.00,
+          "discountPercent": 0,
+          "displayOrder": 2
+        },
+        {
+          "name": "3 1/2 LAXMI",
+          "slug": "3-1-2-laxmi",
+          "unit": "1 Pkt",
+          "mrp": 115.00,
+          "discountPercent": 0,
+          "displayOrder": 3
+        },
+        {
+          "name": "4\" LAXMI",
+          "slug": "4-laxmi",
+          "unit": "1 Pkt",
+          "mrp": 165.00,
+          "discountPercent": 0,
+          "displayOrder": 4
+        },
+        {
+          "name": "4\" HULK DELUXE (12 PLY)",
+          "slug": "4-hulk-deluxe-12-ply",
+          "unit": "1 Pkt",
+          "mrp": 365.00,
+          "discountPercent": 0,
+          "displayOrder": 5
+        },
+        {
+          "name": "5\" DRAGON (14 PLY)",
+          "slug": "5-dragon-14-ply",
+          "unit": "1 Pkt",
+          "mrp": 520.00,
+          "discountPercent": 0,
+          "displayOrder": 6
+        },
+        {
+          "name": "6\" ATM SPL (18 PLY)",
+          "slug": "6-atm-spl-18-ply",
+          "unit": "1 Pkt",
+          "mrp": 625.00,
+          "discountPercent": 0,
+          "displayOrder": 7
+        }
+      ]
+    },
+    {
+      "name": "DOUBLE SOUND EFFECT",
+      "slug": "double-sound-effect",
+      "description": "",
+      "displayOrder": 2,
+      "products": [
+        {
+          "name": "TWO SOUND",
+          "slug": "two-sound",
+          "unit": "1 Pkt",
+          "mrp": 365.00,
+          "discountPercent": 0,
+          "displayOrder": 1
+        },
+        {
+          "name": "THREE SOUND",
+          "slug": "three-sound",
+          "unit": "1 Pkt",
+          "mrp": 580.00,
+          "discountPercent": 0,
+          "displayOrder": 2
+        }
+      ]
+    },
+    {
+      "name": "ATM CELEBRATION PAPER BOMB",
+      "slug": "atm-celebration-paper-bomb",
+      "description": "",
+      "displayOrder": 3,
+      "products": [
+        {
+          "name": "ATM DYNAMIC BOMB - 1",
+          "slug": "atm-dynamic-bomb-1",
+          "unit": "1 Box",
+          "mrp": 620.00,
+          "discountPercent": 0,
+          "displayOrder": 1
+        },
+        {
+          "name": "ATM DYNAMIC BOMB - 2",
+          "slug": "atm-dynamic-bomb-2",
+          "unit": "1 Box",
+          "mrp": 1240.00,
+          "discountPercent": 0,
+          "displayOrder": 2
+        },
+        {
+          "name": "ATM THUNDER BOMB",
+          "slug": "atm-thunder-bomb",
+          "unit": "1 Box",
+          "mrp": 2350.00,
+          "discountPercent": 0,
+          "displayOrder": 3
+        },
+        {
+          "name": "ATM DRAGON BOMB (10 PCS)",
+          "slug": "atm-dragon-bomb-10-pcs",
+          "unit": "1 Box",
+          "mrp": 3500.00,
+          "discountPercent": 0,
+          "displayOrder": 4
+        },
+        {
+          "name": "ATM COLOUR PAPER BOMB",
+          "slug": "atm-colour-paper-bomb",
+          "unit": "1 Box",
+          "mrp": 720.00,
+          "discountPercent": 0,
+          "displayOrder": 5
+        }
+      ]
+    },
+    {
+      "name": "ATM DELUXE BOMB",
+      "slug": "atm-deluxe-bomb",
+      "description": "",
+      "displayOrder": 4,
+      "products": [
+        {
+          "name": "BULLET BOMB (10 PCS)",
+          "slug": "bullet-bomb-10-pcs",
+          "unit": "1 Box",
+          "mrp": 230.00,
+          "discountPercent": 0,
+          "displayOrder": 1
+        },
+        {
+          "name": "ATOM BOMB (10 PCS)",
+          "slug": "atom-bomb-10-pcs",
+          "unit": "1 Box",
+          "mrp": 520.00,
+          "discountPercent": 0,
+          "displayOrder": 2
+        },
+        {
+          "name": "HYDRO BOMB (10 PCS)",
+          "slug": "hydro-bomb-10-pcs",
+          "unit": "1 Box",
+          "mrp": 740.00,
+          "discountPercent": 0,
+          "displayOrder": 3
+        },
+        {
+          "name": "555 BOMB (10 PCS)",
+          "slug": "555-bomb-10-pcs",
+          "unit": "1 Box",
+          "mrp": 1050.00,
+          "discountPercent": 0,
+          "displayOrder": 4
+        },
+        {
+          "name": "JUG MUG (10 PCS)",
+          "slug": "jug-mug-10-pcs",
+          "unit": "1 Box",
+          "mrp": 1100.00,
+          "discountPercent": 0,
+          "displayOrder": 5
+        },
+        {
+          "name": "VIP BOMB (10 PCS) (9 PLY)",
+          "slug": "vip-bomb-10-pcs-9-ply",
+          "unit": "1 Box",
+          "mrp": 1650.00,
+          "discountPercent": 0,
+          "displayOrder": 6
+        },
+        {
+          "name": "KILLER BOMB (10 PCS) (12 PLY)",
+          "slug": "killer-bomb-10-pcs-12-ply",
+          "unit": "1 Box",
+          "mrp": 2450.00,
+          "discountPercent": 0,
+          "displayOrder": 7
+        }
+      ]
+    },
+    {
+      "name": "ATM PREMIUM BIJILI SERIES",
+      "slug": "atm-premium-bijili-series",
+      "description": "",
+      "displayOrder": 5,
+      "products": [
+        {
+          "name": "50 PCS RED BIJILI",
+          "slug": "50-pcs-red-bijili",
+          "unit": "1 Pkt",
+          "mrp": 160.00,
+          "discountPercent": 0,
+          "displayOrder": 1
+        },
+        {
+          "name": "100 PCS RED BIJILI",
+          "slug": "100-pcs-red-bijili",
+          "unit": "1 Pkt",
+          "mrp": 400.00,
+          "discountPercent": 0,
+          "displayOrder": 2
+        },
+        {
+          "name": "100 PCS STRIPPED BIJILI",
+          "slug": "100-pcs-stripped-bijili",
+          "unit": "1 Pkt",
+          "mrp": 410.00,
+          "discountPercent": 0,
+          "displayOrder": 3
+        }
+      ]
+    },
+    {
+      "name": "ATM MAGIC ROCKETS",
+      "slug": "atm-magic-rockets",
+      "description": "",
+      "displayOrder": 6,
+      "products": [
+        {
+          "name": "SUPER ROCKET (10 PCS)",
+          "slug": "super-rocket-10-pcs",
+          "unit": "1 Box",
+          "mrp": 360.00,
+          "discountPercent": 0,
+          "displayOrder": 1
+        },
+        {
+          "name": "ROCKET BOMB (10 PCS)",
+          "slug": "rocket-bomb-10-pcs",
+          "unit": "1 Box",
+          "mrp": 650.00,
+          "discountPercent": 0,
+          "displayOrder": 2
+        },
+        {
+          "name": "LUNIK EXPRESS ROCKET (10 PCS)",
+          "slug": "lunik-express-rocket-10-pcs",
+          "unit": "1 Box",
+          "mrp": 1100.00,
+          "discountPercent": 0,
+          "displayOrder": 3
+        },
+        {
+          "name": "MELODY ROCKET (10 PCS)",
+          "slug": "melody-rocket-10-pcs",
+          "unit": "1 Box",
+          "mrp": 1850.00,
+          "discountPercent": 0,
+          "displayOrder": 4
+        },
+        {
+          "name": "ATM VIP KING ROCKET (10 PCS)",
+          "slug": "atm-vip-king-rocket-10-pcs",
+          "unit": "1 Box",
+          "mrp": 5400.00,
+          "discountPercent": 0,
+          "displayOrder": 5
+        }
+      ]
+    },
+    {
+      "name": "ATM MAGIC MONEY SERIES",
+      "slug": "atm-magic-money-series",
+      "description": "",
+      "displayOrder": 7,
+      "products": [
+        {
+          "name": "3 - IN 1 MONEY BANK (3 PCS)",
+          "slug": "3-in-1-money-bank-3-pcs",
+          "unit": "1 Box",
+          "mrp": 1350.00,
+          "discountPercent": 0,
+          "displayOrder": 1
+        },
+        {
+          "name": "MONEY HEIST (2 PCS)",
+          "slug": "money-heist-2-pcs",
+          "unit": "1 Box",
+          "mrp": 2200.00,
+          "discountPercent": 0,
+          "displayOrder": 2
+        }
+      ]
+    },
+    {
+      "name": "ATM GRAND VANAM SERIES",
+      "slug": "atm-grand-vanam-series",
+      "description": "",
+      "displayOrder": 8,
+      "products": [
+        {
+          "name": "100 VARNAM",
+          "slug": "100-varnam",
+          "unit": "1 Box",
+          "mrp": 450.00,
+          "discountPercent": 0,
+          "displayOrder": 1
+        },
+        {
+          "name": "200 VARNAM",
+          "slug": "200-varnam",
+          "unit": "1 Box",
+          "mrp": 900.00,
+          "discountPercent": 0,
+          "displayOrder": 2
+        },
+        {
+          "name": "1000 VARNAM",
+          "slug": "1000-varnam",
+          "unit": "1 Box",
+          "mrp": 2150.00,
+          "discountPercent": 0,
+          "displayOrder": 3
+        },
+        {
+          "name": "2000 VARNAM",
+          "slug": "2000-varnam",
+          "unit": "1 Box",
+          "mrp": 4700.00,
+          "discountPercent": 0,
+          "displayOrder": 4
+        },
+        {
+          "name": "5000 VARNAM",
+          "slug": "5000-varnam",
+          "unit": "1 Box",
+          "mrp": 11600.00,
+          "discountPercent": 0,
+          "displayOrder": 5
+        },
+        {
+          "name": "10000 VARNAM",
+          "slug": "10000-varnam",
+          "unit": "1 Box",
+          "mrp": 22200.00,
+          "discountPercent": 0,
+          "displayOrder": 6
+        },
+        {
+          "name": "20000 VARNAM (ATM GRAND)",
+          "slug": "20000-varnam-atm-grand",
+          "unit": "1 Box",
+          "mrp": 41000.00,
+          "discountPercent": 0,
+          "displayOrder": 7
+        }
+      ]
+    },
+    {
+      "name": "ATM MINI GRAND SERIES",
+      "slug": "atm-mini-grand-series",
+      "description": "",
+      "displayOrder": 9,
+      "products": [
+        {
+          "name": "28 POWER",
+          "slug": "28-power",
+          "unit": "1 Pkt",
+          "mrp": 170.00,
+          "discountPercent": 0,
+          "displayOrder": 1
+        },
+        {
+          "name": "56 POWER",
+          "slug": "56-power",
+          "unit": "1 Pkt",
+          "mrp": 340.00,
+          "discountPercent": 0,
+          "displayOrder": 2
+        },
+        {
+          "name": "28 MEGA POWER",
+          "slug": "28-mega-power",
+          "unit": "1 Pkt",
+          "mrp": 240.00,
+          "discountPercent": 0,
+          "displayOrder": 3
+        },
+        {
+          "name": "56 MEGA POWER",
+          "slug": "56-mega-power",
+          "unit": "1 Pkt",
+          "mrp": 480.00,
+          "discountPercent": 0,
+          "displayOrder": 4
+        }
+      ]
+    },
+    {
+      "name": "ATM KING DELUXE SERIES",
+      "slug": "atm-king-deluxe-series",
+      "description": "",
+      "displayOrder": 10,
+      "products": [
+        {
+          "name": "24 ULTRA SOUND",
+          "slug": "24-ultra-sound",
+          "unit": "1 Box",
+          "mrp": 360.00,
+          "discountPercent": 0,
+          "displayOrder": 1
+        },
+        {
+          "name": "50 ULTRA SOUND",
+          "slug": "50-ultra-sound",
+          "unit": "1 Box",
+          "mrp": 820.00,
+          "discountPercent": 0,
+          "displayOrder": 2
+        },
+        {
+          "name": "100 ATM ULTRA SOUND",
+          "slug": "100-atm-ultra-sound",
+          "unit": "1 Box",
+          "mrp": 1970.00,
+          "discountPercent": 0,
+          "displayOrder": 3
+        }
+      ]
+    },
+    {
+      "name": "CELEBRATION GANA",
+      "slug": "celebration-gana",
+      "description": "",
+      "displayOrder": 11,
+      "products": [
+        {
+          "name": "MINI KING SIREN (5 PCS)",
+          "slug": "mini-king-siren-5-pcs",
+          "unit": "1 Box",
+          "mrp": 1580.00,
+          "discountPercent": 0,
+          "displayOrder": 1
+        },
+        {
+          "name": "MAX SIREN (3 PCS)",
+          "slug": "max-siren-3-pcs",
+          "unit": "1 Box",
+          "mrp": 1860.00,
+          "discountPercent": 0,
+          "displayOrder": 2
+        }
+      ]
+    },
+    {
+      "name": "2026 - ATM DAY SPECIAL NEW ARRIVAL",
+      "slug": "2026-atm-day-special-new-arrival",
+      "description": "",
+      "displayOrder": 12,
+      "products": [
+        {
+          "name": "COLOUR SPARK (3 PCS)",
+          "slug": "colour-spark-3-pcs",
+          "unit": "1 Box",
+          "mrp": 1850.00,
+          "discountPercent": 0,
+          "displayOrder": 1
+        },
+        {
+          "name": "ATM SPL COLOUR SPARK",
+          "slug": "atm-spl-colour-spark",
+          "unit": "1 Box",
+          "mrp": 2100.00,
+          "discountPercent": 0,
+          "displayOrder": 2
+        },
+        {
+          "name": "ATM COLOUR WORLD (15-SHOTS)",
+          "slug": "atm-colour-world-15-shots",
+          "unit": "1 Box",
+          "mrp": 5900.00,
+          "discountPercent": 0,
+          "displayOrder": 3
+        },
+        {
+          "name": "FIRE EGG (2 PCS)",
+          "slug": "fire-egg-2-pcs",
+          "unit": "1 Box",
+          "mrp": 1810.00,
+          "discountPercent": 0,
+          "displayOrder": 4
+        }
+      ]
+    },
+    {
+      "name": "ATM NIGHT SPECIAL ATTRACTIES",
+      "slug": "atm-night-special-attracties",
+      "description": "",
+      "displayOrder": 13,
+      "products": []
+    },
+    {
+      "name": "VOLCONA POT SERIES",
+      "slug": "volcona-pot-series",
+      "description": "",
+      "displayOrder": 14,
+      "products": [
+        {
+          "name": "FLOWER POTS SMALL (10 PCS)",
+          "slug": "flower-pots-small-10-pcs",
+          "unit": "1 Box",
+          "mrp": 470.00,
+          "discountPercent": 0,
+          "displayOrder": 1
+        },
+        {
+          "name": "FLOWER POTS BIG (10 PCS)",
+          "slug": "flower-pots-big-10-pcs",
+          "unit": "1 Box",
+          "mrp": 595.00,
+          "discountPercent": 0,
+          "displayOrder": 2
+        },
+        {
+          "name": "FLOWER POTS SPECIAL (10 PCS)",
+          "slug": "flower-pots-special-10-pcs",
+          "unit": "1 Box",
+          "mrp": 890.00,
+          "discountPercent": 0,
+          "displayOrder": 3
+        },
+        {
+          "name": "FLOWER POTS ASOKA (10 PCS)",
+          "slug": "flower-pots-asoka-10-pcs",
+          "unit": "1 Box",
+          "mrp": 1030.00,
+          "discountPercent": 0,
+          "displayOrder": 4
+        },
+        {
+          "name": "FLOWER POTS SUPER DELUXE (2 PCS)",
+          "slug": "flower-pots-super-deluxe-2-pcs",
+          "unit": "1 Box",
+          "mrp": 1650.00,
+          "discountPercent": 0,
+          "displayOrder": 5
+        },
+        {
+          "name": "FLOWER POTS COLOUR KOTI (10 PCS)",
+          "slug": "flower-pots-colour-koti-10-pcs",
+          "unit": "1 Box",
+          "mrp": 2180.00,
+          "discountPercent": 0,
+          "displayOrder": 6
+        }
+      ]
+    },
+    {
+      "name": "2026 ATM GALAXY POTS",
+      "slug": "2026-atm-galaxy-pots",
+      "description": "",
+      "displayOrder": 15,
+      "products": [
+        {
+          "name": "ROYAL SPECIAL POTS (5 PCS)",
+          "slug": "royal-special-pots-5-pcs",
+          "unit": "1 Box",
+          "mrp": 1380.00,
+          "discountPercent": 0,
+          "displayOrder": 1
+        },
+        {
+          "name": "ATM EMPERAR POTS (5 PCS)",
+          "slug": "atm-emperar-pots-5-pcs",
+          "unit": "1 Box",
+          "mrp": 2280.00,
+          "discountPercent": 0,
+          "displayOrder": 2
+        },
+        {
+          "name": "BLUE STAR MEGA POTS (10 PCS)",
+          "slug": "blue-star-mega-pots-10-pcs",
+          "unit": "1 Box",
+          "mrp": 6450.00,
+          "discountPercent": 0,
+          "displayOrder": 3
+        },
+        {
+          "name": "VANITHA COLOUR POTS (10 PCS)",
+          "slug": "vanitha-colour-pots-10-pcs",
+          "unit": "1 Box",
+          "mrp": 6700.00,
+          "discountPercent": 0,
+          "displayOrder": 4
+        },
+        {
+          "name": "SUPER KOTTI (10 PCS)",
+          "slug": "super-kotti-10-pcs",
+          "unit": "1 Box",
+          "mrp": 6950.00,
+          "discountPercent": 0,
+          "displayOrder": 5
+        },
+        {
+          "name": "SONY VIOLET COLOUR KOTTI (10PCS)",
+          "slug": "sony-violet-colour-kotti-10pcs",
+          "unit": "1 Box",
+          "mrp": 7900.00,
+          "discountPercent": 0,
+          "displayOrder": 6
+        }
+      ]
+    },
+    {
+      "name": "POWER CHAKKARAM FESTIVAL",
+      "slug": "power-chakkaram-festival",
+      "description": "",
+      "displayOrder": 16,
+      "products": [
+        {
+          "name": "CHAKKAR BASIC (10 PCS)",
+          "slug": "chakkar-basic-10-pcs",
+          "unit": "1 Box",
+          "mrp": 370.00,
+          "discountPercent": 0,
+          "displayOrder": 1
+        },
+        {
+          "name": "CHAKKAR ASOKA (10 PCS)",
+          "slug": "chakkar-asoka-10-pcs",
+          "unit": "1 Box",
+          "mrp": 750.00,
+          "discountPercent": 0,
+          "displayOrder": 2
+        },
+        {
+          "name": "CHAKKAR SPL (10 PCS)",
+          "slug": "chakkar-spl-10-pcs",
+          "unit": "1 Box",
+          "mrp": 780.00,
+          "discountPercent": 0,
+          "displayOrder": 3
+        },
+        {
+          "name": "CHAKKAR DELUXE (10 PCS)",
+          "slug": "chakkar-deluxe-10-pcs",
+          "unit": "1 Box",
+          "mrp": 1620.00,
+          "discountPercent": 0,
+          "displayOrder": 4
+        }
+      ]
+    },
+    {
+      "name": "THE SPIN MASTERS",
+      "slug": "the-spin-masters",
+      "description": "",
+      "displayOrder": 17,
+      "products": [
+        {
+          "name": "COLOUR SPINNER MIX (10 PCS)",
+          "slug": "colour-spinner-mix-10-pcs",
+          "unit": "1 Box",
+          "mrp": 2100.00,
+          "discountPercent": 0,
+          "displayOrder": 1
+        },
+        {
+          "name": "SUPER SPEED CHAKKAR (10 PCS)",
+          "slug": "super-speed-chakkar-10-pcs",
+          "unit": "1 Box",
+          "mrp": 2450.00,
+          "discountPercent": 0,
+          "displayOrder": 2
+        }
+      ]
+    },
+    {
+      "name": "2026 ATM SPINNER SPECIAL",
+      "slug": "2026-atm-spinner-special",
+      "description": "",
+      "displayOrder": 18,
+      "products": [
+        {
+          "name": "MUSICAL CHAKKAR (5 PCS)",
+          "slug": "musical-chakkar-5-pcs",
+          "unit": "1 Box",
+          "mrp": 1180.00,
+          "discountPercent": 0,
+          "displayOrder": 1
+        },
+        {
+          "name": "DISCO WHEEL (5 PCS)",
+          "slug": "disco-wheel-5-pcs",
+          "unit": "1 Box",
+          "mrp": 1020.00,
+          "discountPercent": 0,
+          "displayOrder": 2
+        },
+        {
+          "name": "4 X 4 WHEEL (5 PCS)",
+          "slug": "4-x-4-wheel-5-pcs",
+          "unit": "1 Box",
+          "mrp": 1650.00,
+          "discountPercent": 0,
+          "displayOrder": 3
+        },
+        {
+          "name": "JOLLY WHEEL (10 PCS)",
+          "slug": "jolly-wheel-10-pcs",
+          "unit": "1 Box",
+          "mrp": 1380.00,
+          "discountPercent": 0,
+          "displayOrder": 4
+        }
+      ]
+    },
+    {
+      "name": "FLYING SERIES",
+      "slug": "flying-series",
+      "description": "",
+      "displayOrder": 19,
+      "products": [
+        {
+          "name": "DEFENCE HELICOPTER (5 PCS)",
+          "slug": "defence-helicopter-5-pcs",
+          "unit": "1 Box",
+          "mrp": 970.00,
+          "discountPercent": 0,
+          "displayOrder": 1
+        },
+        {
+          "name": "DRONE CAMERA(5 PCS)",
+          "slug": "drone-camera-5-pcs",
+          "unit": "1 Box",
+          "mrp": 1580.00,
+          "discountPercent": 0,
+          "displayOrder": 2
+        },
+        {
+          "name": "VANITHA FLY MACHINE (10 PCS)",
+          "slug": "vanitha-fly-machine-10-pcs",
+          "unit": "1 Box",
+          "mrp": 5800.00,
+          "discountPercent": 0,
+          "displayOrder": 3
+        },
+        {
+          "name": "MERY GOMERY (3 PCS)",
+          "slug": "mery-gomery-3-pcs",
+          "unit": "1 Box",
+          "mrp": 2250.00,
+          "discountPercent": 0,
+          "displayOrder": 4
+        }
+      ]
+    },
+    {
+      "name": "ATM FIRE PENCILS SERIES",
+      "slug": "atm-fire-pencils-series",
+      "description": "",
+      "displayOrder": 20,
+      "products": [
+        {
+          "name": "TRICOLOUR PENCIL (10 PCS)",
+          "slug": "tricolour-pencil-10-pcs",
+          "unit": "1 Box",
+          "mrp": 920.00,
+          "discountPercent": 0,
+          "displayOrder": 1
+        },
+        {
+          "name": "SILVER TORCHES (10 PCS)",
+          "slug": "silver-torches-10-pcs",
+          "unit": "1 Box",
+          "mrp": 1450.00,
+          "discountPercent": 0,
+          "displayOrder": 2
+        },
+        {
+          "name": "50 - SEC TORCHES (5 PCS)",
+          "slug": "50-sec-torches-5-pcs",
+          "unit": "1 Box",
+          "mrp": 1560.00,
+          "discountPercent": 0,
+          "displayOrder": 3
+        }
+      ]
+    },
+    {
+      "name": "2026 CHILDRENS SPECIAL SERIES",
+      "slug": "2026-childrens-special-series",
+      "description": "",
+      "displayOrder": 21,
+      "products": [
+        {
+          "name": "MAGIC BOBBS (10 PCS)",
+          "slug": "magic-bobbs-10-pcs",
+          "unit": "1 Box",
+          "mrp": 93.00,
+          "discountPercent": 0,
+          "displayOrder": 1
+        },
+        {
+          "name": "ZEE BOM BAA (10 PCS)",
+          "slug": "zee-bom-baa-10-pcs",
+          "unit": "1 Box",
+          "mrp": 93.00,
+          "discountPercent": 0,
+          "displayOrder": 2
+        },
+        {
+          "name": "STONE (10 PCS)",
+          "slug": "stone-10-pcs",
+          "unit": "1 Box",
+          "mrp": 95.00,
+          "discountPercent": 0,
+          "displayOrder": 3
+        },
+        {
+          "name": "ANIMAL CARTOON (10 PCS)",
+          "slug": "animal-cartoon-10-pcs",
+          "unit": "1 Box",
+          "mrp": 261.00,
+          "discountPercent": 0,
+          "displayOrder": 4
+        },
+        {
+          "name": "SNAKE TABLET (10 PCS)",
+          "slug": "snake-tablet-10-pcs",
+          "unit": "1 Box",
+          "mrp": 265.00,
+          "discountPercent": 0,
+          "displayOrder": 5
+        },
+        {
+          "name": "PERI PERI (10 PCS)",
+          "slug": "peri-peri-10-pcs",
+          "unit": "1 Box",
+          "mrp": 340.00,
+          "discountPercent": 0,
+          "displayOrder": 6
+        },
+        {
+          "name": "DANCING BUTTERFLY (10 PCS)",
+          "slug": "dancing-butterfly-10-pcs",
+          "unit": "1 Box",
+          "mrp": 730.00,
+          "discountPercent": 0,
+          "displayOrder": 7
+        },
+        {
+          "name": "RANG SPINNER (10 PCS)",
+          "slug": "rang-spinner-10-pcs",
+          "unit": "1 Box",
+          "mrp": 1080.00,
+          "discountPercent": 0,
+          "displayOrder": 8
+        },
+        {
+          "name": "PHOTO FLASH (10 PCS)",
+          "slug": "photo-flash-10-pcs",
+          "unit": "1 Box",
+          "mrp": 630.00,
+          "discountPercent": 0,
+          "displayOrder": 9
+        },
+        {
+          "name": "DRAGON SHOWER (1 PCS)",
+          "slug": "dragon-shower-1-pcs",
+          "unit": "1 Box",
+          "mrp": 1120.00,
+          "discountPercent": 0,
+          "displayOrder": 10
+        },
+        {
+          "name": "SELFI TORCH (3 PCS)",
+          "slug": "selfi-torch-3-pcs",
+          "unit": "1 Box",
+          "mrp": 490.00,
+          "discountPercent": 0,
+          "displayOrder": 11
+        },
+        {
+          "name": "JOLLY RUSH (5 PCS)",
+          "slug": "jolly-rush-5-pcs",
+          "unit": "1 Box",
+          "mrp": 1080.00,
+          "discountPercent": 0,
+          "displayOrder": 12
+        },
+        {
+          "name": "90-WATTS (3 PCS)",
+          "slug": "90-watts-3-pcs",
+          "unit": "1 Box",
+          "mrp": 1230.00,
+          "discountPercent": 0,
+          "displayOrder": 13
+        },
+        {
+          "name": "ATM BAT & BALL 2026 (1 PCS)",
+          "slug": "atm-bat-ball-2026-1-pcs",
+          "unit": "1 Box",
+          "mrp": 2420.00,
+          "discountPercent": 0,
+          "displayOrder": 14
+        },
+        {
+          "name": "WATER BALLS (1 PCS)",
+          "slug": "water-balls-1-pcs",
+          "unit": "1 Box",
+          "mrp": 1200.00,
+          "discountPercent": 0,
+          "displayOrder": 15
+        },
+        {
+          "name": "KULFI (3 PCS)",
+          "slug": "kulfi-3-pcs",
+          "unit": "1 Box",
+          "mrp": 2850.00,
+          "discountPercent": 0,
+          "displayOrder": 16
+        }
+      ]
+    },
+    {
+      "name": "ATM FRIENDS CELEBRATION",
+      "slug": "atm-friends-celebration",
+      "description": "",
+      "displayOrder": 22,
+      "products": [
+        {
+          "name": "LITTLE PECOCK (1 PCS)",
+          "slug": "little-pecock-1-pcs",
+          "unit": "1 Box",
+          "mrp": 1050.00,
+          "discountPercent": 0,
+          "displayOrder": 1
+        },
+        {
+          "name": "MAGIC FOUNTAIN (5 PCS)",
+          "slug": "magic-fountain-5-pcs",
+          "unit": "1 Box",
+          "mrp": 1800.00,
+          "discountPercent": 0,
+          "displayOrder": 2
+        },
+        {
+          "name": "TEEN TITAN FOUNTAIN (6 PCS)",
+          "slug": "teen-titan-fountain-6-pcs",
+          "unit": "1 Box",
+          "mrp": 1780.00,
+          "discountPercent": 0,
+          "displayOrder": 3
+        },
+        {
+          "name": "K - JOY FOUNTAIN (5 PCS)",
+          "slug": "k-joy-fountain-5-pcs",
+          "unit": "1 Box",
+          "mrp": 1680.00,
+          "discountPercent": 0,
+          "displayOrder": 4
+        },
+        {
+          "name": "HI FI FOUNTAIN (5 PCS)",
+          "slug": "hi-fi-fountain-5-pcs",
+          "unit": "1 Box",
+          "mrp": 1830.00,
+          "discountPercent": 0,
+          "displayOrder": 5
+        },
+        {
+          "name": "STAR MIX (5 PCS)",
+          "slug": "star-mix-5-pcs",
+          "unit": "1 Box",
+          "mrp": 1580.00,
+          "discountPercent": 0,
+          "displayOrder": 6
+        },
+        {
+          "name": "BADA PECOCK (1 BOX)",
+          "slug": "bada-pecock-1-box",
+          "unit": "1 Box",
+          "mrp": 4950.00,
+          "discountPercent": 0,
+          "displayOrder": 7
+        },
+        {
+          "name": "MAGICAL PEACOCK (1 BOX)",
+          "slug": "magical-peacock-1-box",
+          "unit": "1 Box",
+          "mrp": 1550.00,
+          "discountPercent": 0,
+          "displayOrder": 8
+        }
+      ]
+    },
+    {
+      "name": "ATM SPECIAL FOUNTAINS SERIES",
+      "slug": "atm-special-fountains-series",
+      "description": "",
+      "displayOrder": 23,
+      "products": [
+        {
+          "name": "MINI POLO FOUNTAIN",
+          "slug": "mini-polo-fountain",
+          "unit": "1 Box",
+          "mrp": 270.00,
+          "discountPercent": 0,
+          "displayOrder": 1
+        },
+        {
+          "name": "TEDDY FOUNTAIN",
+          "slug": "teddy-fountain",
+          "unit": "1 Box",
+          "mrp": 520.00,
+          "discountPercent": 0,
+          "displayOrder": 2
+        },
+        {
+          "name": "DISCO SHOWER (5 PCS)",
+          "slug": "disco-shower-5-pcs",
+          "unit": "1 Box",
+          "mrp": 1120.00,
+          "discountPercent": 0,
+          "displayOrder": 3
+        },
+        {
+          "name": "FANTASY CRACKLING FOUNTAIN",
+          "slug": "fantasy-crackling-fountain",
+          "unit": "1 Box",
+          "mrp": 2950.00,
+          "discountPercent": 0,
+          "displayOrder": 4
+        },
+        {
+          "name": "COLOUR CHANGING FLOWER",
+          "slug": "colour-changing-flower",
+          "unit": "1 Box",
+          "mrp": 1860.00,
+          "discountPercent": 0,
+          "displayOrder": 5
+        },
+        {
+          "name": "NANO TRICOLOUR (5 PCS)",
+          "slug": "nano-tricolour-5-pcs",
+          "unit": "1 Box",
+          "mrp": 2150.00,
+          "discountPercent": 0,
+          "displayOrder": 6
+        },
+        {
+          "name": "MONO TRICOLOUR (5 PCS)",
+          "slug": "mono-tricolour-5-pcs",
+          "unit": "1 Box",
+          "mrp": 2520.00,
+          "discountPercent": 0,
+          "displayOrder": 7
+        },
+        {
+          "name": "VANITHA MINIPOT MIX",
+          "slug": "vanitha-minipot-mix",
+          "unit": "1 Box",
+          "mrp": 3950.00,
+          "discountPercent": 0,
+          "displayOrder": 8
+        },
+        {
+          "name": "FLOWER BOMB",
+          "slug": "flower-bomb",
+          "unit": "1 Box",
+          "mrp": 1050.00,
+          "discountPercent": 0,
+          "displayOrder": 9
+        },
+        {
+          "name": "POPS GOLD SILVER",
+          "slug": "pops-gold-silver",
+          "unit": "1 Box",
+          "mrp": 880.00,
+          "discountPercent": 0,
+          "displayOrder": 10
+        },
+        {
+          "name": "WELCOME SHOW",
+          "slug": "welcome-show",
+          "unit": "1 Box",
+          "mrp": 3980.00,
+          "discountPercent": 0,
+          "displayOrder": 11
+        },
+        {
+          "name": "PRIME SERIES",
+          "slug": "prime-series",
+          "unit": "1 Box",
+          "mrp": 1020.00,
+          "discountPercent": 0,
+          "displayOrder": 12
+        },
+        {
+          "name": "SONA MAYUR",
+          "slug": "sona-mayur",
+          "unit": "1 Box",
+          "mrp": 1950.00,
+          "discountPercent": 0,
+          "displayOrder": 13
+        },
+        {
+          "name": "PECOCK FEATHER (5 PCS)",
+          "slug": "pecock-feather-5-pcs",
+          "unit": "1 Box",
+          "mrp": 980.00,
+          "discountPercent": 0,
+          "displayOrder": 14
+        }
+      ]
+    },
+    {
+      "name": "ATM SHINE FOUNTAINS SERIES",
+      "slug": "atm-shine-fountains-series",
+      "description": "",
+      "displayOrder": 24,
+      "products": [
+        {
+          "name": "SUN DROPS",
+          "slug": "sun-drops",
+          "unit": "1 Box",
+          "mrp": 1280.00,
+          "discountPercent": 0,
+          "displayOrder": 1
+        },
+        {
+          "name": "STAR DROPS",
+          "slug": "star-drops",
+          "unit": "1 Box",
+          "mrp": 1280.00,
+          "discountPercent": 0,
+          "displayOrder": 2
+        },
+        {
+          "name": "MOON DROPS",
+          "slug": "moon-drops",
+          "unit": "1 Box",
+          "mrp": 1280.00,
+          "discountPercent": 0,
+          "displayOrder": 3
+        },
+        {
+          "name": "AMAZING FOUNTAIN",
+          "slug": "amazing-fountain",
+          "unit": "1 Box",
+          "mrp": 1950.00,
+          "discountPercent": 0,
+          "displayOrder": 4
+        },
+        {
+          "name": "CLASSIC 5IN 1",
+          "slug": "classic-5in-1",
+          "unit": "1 Box",
+          "mrp": 1980.00,
+          "discountPercent": 0,
+          "displayOrder": 5
+        },
+        {
+          "name": "PANJAVARNAM",
+          "slug": "panjavarnam",
+          "unit": "1 Box",
+          "mrp": 1650.00,
+          "discountPercent": 0,
+          "displayOrder": 6
+        },
+        {
+          "name": "DEXTER FOUNTAIN",
+          "slug": "dexter-fountain",
+          "unit": "1 Box",
+          "mrp": 1550.00,
+          "discountPercent": 0,
+          "displayOrder": 7
+        },
+        {
+          "name": "POWER PUFF GIRLS",
+          "slug": "power-puff-girls",
+          "unit": "1 Box",
+          "mrp": 1580.00,
+          "discountPercent": 0,
+          "displayOrder": 8
+        },
+        {
+          "name": "LEMON TREE FOUNTAIN",
+          "slug": "lemon-tree-fountain",
+          "unit": "1 Box",
+          "mrp": 1470.00,
+          "discountPercent": 0,
+          "displayOrder": 9
+        },
+        {
+          "name": "FISH CANDLE",
+          "slug": "fish-candle",
+          "unit": "1 Box",
+          "mrp": 1080.00,
+          "discountPercent": 0,
+          "displayOrder": 10
+        },
+        {
+          "name": "ATM SWORD",
+          "slug": "atm-sword",
+          "unit": "1 Box",
+          "mrp": 1420.00,
+          "discountPercent": 0,
+          "displayOrder": 11
+        }
+      ]
+    },
+    {
+      "name": "2026 NIGHT SPECIAL",
+      "slug": "2026-night-special",
+      "description": "",
+      "displayOrder": 25,
+      "products": [
+        {
+          "name": "CIRCUS CHAKARA (5 PCS)",
+          "slug": "circus-chakara-5-pcs",
+          "unit": "1 Box",
+          "mrp": 1960.00,
+          "discountPercent": 0,
+          "displayOrder": 1
+        },
+        {
+          "name": "BADA COLOUR CELEBRATION",
+          "slug": "bada-colour-celebration",
+          "unit": "1 Box",
+          "mrp": 2950.00,
+          "discountPercent": 0,
+          "displayOrder": 2
+        },
+        {
+          "name": "HEART BEAT (6 SHOTS)",
+          "slug": "heart-beat-6-shots",
+          "unit": "1 Box",
+          "mrp": 1480.00,
+          "discountPercent": 0,
+          "displayOrder": 3
+        },
+        {
+          "name": "MY QUEEN FOUNTAIN (2 STEP)",
+          "slug": "my-queen-fountain-2-step",
+          "unit": "1 Box",
+          "mrp": 1550.00,
+          "discountPercent": 0,
+          "displayOrder": 4
+        },
+        {
+          "name": "ATM BUS FOUNTAIN",
+          "slug": "atm-bus-fountain",
+          "unit": "1 Box",
+          "mrp": 1820.00,
+          "discountPercent": 0,
+          "displayOrder": 5
+        },
+        {
+          "name": "TINY POTS (3 IN 1 FUSION)",
+          "slug": "tiny-pots-3-in-1-fusion",
+          "unit": "1 Box",
+          "mrp": 3450.00,
+          "discountPercent": 0,
+          "displayOrder": 6
+        },
+        {
+          "name": "WIRE CHAKKARAM (10 PCS)",
+          "slug": "wire-chakkaram-10-pcs",
+          "unit": "1 Box",
+          "mrp": 1850.00,
+          "discountPercent": 0,
+          "displayOrder": 7
+        },
+        {
+          "name": "FRUIT FANCY FOUNTAIN",
+          "slug": "fruit-fancy-fountain",
+          "unit": "1 Box",
+          "mrp": 2650.00,
+          "discountPercent": 0,
+          "displayOrder": 8
+        },
+        {
+          "name": "CYLINDER BOMB (2 PCS)",
+          "slug": "cylinder-bomb-2-pcs",
+          "unit": "1 Box",
+          "mrp": 2550.00,
+          "discountPercent": 0,
+          "displayOrder": 9
+        }
+      ]
+    },
+    {
+      "name": "COOL DRINK TIN FOUNTAIN",
+      "slug": "cool-drink-tin-fountain",
+      "description": "",
+      "displayOrder": 26,
+      "products": [
+        {
+          "name": "CO CO COLA TIN",
+          "slug": "co-co-cola-tin",
+          "unit": "1 Box",
+          "mrp": 1050.00,
+          "discountPercent": 0,
+          "displayOrder": 1
+        },
+        {
+          "name": "AUTUMIN RAIN",
+          "slug": "autumin-rain",
+          "unit": "1 Box",
+          "mrp": 1630.00,
+          "discountPercent": 0,
+          "displayOrder": 2
+        },
+        {
+          "name": "WINTER RAIN",
+          "slug": "winter-rain",
+          "unit": "1 Box",
+          "mrp": 1630.00,
+          "discountPercent": 0,
+          "displayOrder": 3
+        }
+      ]
+    },
+    {
+      "name": "ATM AMAZING MINI FANCY",
+      "slug": "atm-amazing-mini-fancy",
+      "description": "",
+      "displayOrder": 27,
+      "products": [
+        {
+          "name": "AMAZING SKY SHOT (5 PCS)",
+          "slug": "amazing-sky-shot-5-pcs",
+          "unit": "1 Box",
+          "mrp": 1630.00,
+          "discountPercent": 0,
+          "displayOrder": 1
+        },
+        {
+          "name": "WONDERFUL SKY SHOTS (10 PCS)",
+          "slug": "wonderful-sky-shots-10-pcs",
+          "unit": "1 Box",
+          "mrp": 2350.00,
+          "discountPercent": 0,
+          "displayOrder": 2
+        }
+      ]
+    },
+    {
+      "name": "COLOUR ROPE SERIES",
+      "slug": "colour-rope-series",
+      "description": "",
+      "displayOrder": 28,
+      "products": [
+        {
+          "name": "11/2\" TWINKLING STAR (10 PCS)",
+          "slug": "11-2-twinkling-star-10-pcs",
+          "unit": "1 Box",
+          "mrp": 245.00,
+          "discountPercent": 0,
+          "displayOrder": 1
+        },
+        {
+          "name": "4\" TWINKLING STAR (10 PCS)",
+          "slug": "4-twinkling-star-10-pcs",
+          "unit": "1 Box",
+          "mrp": 610.00,
+          "discountPercent": 0,
+          "displayOrder": 2
+        }
+      ]
+    },
+    {
+      "name": "KING OF ATM FANCY SERIES",
+      "slug": "king-of-atm-fancy-series",
+      "description": "",
+      "displayOrder": 29,
+      "products": [
+        {
+          "name": "1\" CHOTTA FANCY",
+          "slug": "1-chotta-fancy",
+          "unit": "1 Box",
+          "mrp": 370.00,
+          "discountPercent": 0,
+          "displayOrder": 1
+        },
+        {
+          "name": "2\" WOW FANCY",
+          "slug": "2-wow-fancy",
+          "unit": "1 Box",
+          "mrp": 960.00,
+          "discountPercent": 0,
+          "displayOrder": 2
+        },
+        {
+          "name": "2\" (3 PCS) AVENGER FANCY",
+          "slug": "2-3-pcs-avenger-fancy",
+          "unit": "1 Box",
+          "mrp": 2630.00,
+          "discountPercent": 0,
+          "displayOrder": 3
+        },
+        {
+          "name": "3 1/2 DARK FANCY",
+          "slug": "3-1-2-dark-fancy",
+          "unit": "1 Box",
+          "mrp": 2600.00,
+          "discountPercent": 0,
+          "displayOrder": 4
+        },
+        {
+          "name": "4\" TITAN FANCY",
+          "slug": "4-titan-fancy",
+          "unit": "1 Box",
+          "mrp": 3980.00,
+          "discountPercent": 0,
+          "displayOrder": 5
+        },
+        {
+          "name": "4\" (2 PCS) SUPERMAN FANCY",
+          "slug": "4-2-pcs-superman-fancy",
+          "unit": "1 Box",
+          "mrp": 8950.00,
+          "discountPercent": 0,
+          "displayOrder": 6
+        },
+        {
+          "name": "4\"(3 PCS) GAMBLING FANCY",
+          "slug": "4-3-pcs-gambling-fancy",
+          "unit": "1 Box",
+          "mrp": 13950.00,
+          "discountPercent": 0,
+          "displayOrder": 7
+        },
+        {
+          "name": "5\" GODZILLA FANCY",
+          "slug": "5-godzilla-fancy",
+          "unit": "1 Box",
+          "mrp": 6950.00,
+          "discountPercent": 0,
+          "displayOrder": 8
+        },
+        {
+          "name": "6\" IRON MAN FANCY",
+          "slug": "6-iron-man-fancy",
+          "unit": "1 Box",
+          "mrp": 13500.00,
+          "discountPercent": 0,
+          "displayOrder": 9
+        },
+        {
+          "name": "6\" SUPER HEROS",
+          "slug": "6-super-heros",
+          "unit": "1 Box",
+          "mrp": 17800.00,
+          "discountPercent": 0,
+          "displayOrder": 10
+        },
+        {
+          "name": "7\" OCEAN BLUE (VANITHA)",
+          "slug": "7-ocean-blue-vanitha",
+          "unit": "1 Box",
+          "mrp": 28000.00,
+          "discountPercent": 0,
+          "displayOrder": 11
+        }
+      ]
+    },
+    {
+      "name": "ATM ICONIC CELEBRATIONS",
+      "slug": "atm-iconic-celebrations",
+      "description": "",
+      "displayOrder": 30,
+      "products": [
+        {
+          "name": "3 STEPS FANCY",
+          "slug": "3-steps-fancy",
+          "unit": "1 Box",
+          "mrp": 2100.00,
+          "discountPercent": 0,
+          "displayOrder": 1
+        },
+        {
+          "name": "12 STEPS FANCY",
+          "slug": "12-steps-fancy",
+          "unit": "1 Box",
+          "mrp": 4150.00,
+          "discountPercent": 0,
+          "displayOrder": 2
+        },
+        {
+          "name": "BOUBLE BALL FANCY",
+          "slug": "bouble-ball-fancy",
+          "unit": "1 Box",
+          "mrp": 3850.00,
+          "discountPercent": 0,
+          "displayOrder": 3
+        },
+        {
+          "name": "NAYAGARA FALLS FANCY",
+          "slug": "nayagara-falls-fancy",
+          "unit": "1 Box",
+          "mrp": 3950.00,
+          "discountPercent": 0,
+          "displayOrder": 4
+        },
+        {
+          "name": "COOL RAIN FANCY",
+          "slug": "cool-rain-fancy",
+          "unit": "1 Box",
+          "mrp": 4100.00,
+          "discountPercent": 0,
+          "displayOrder": 5
+        },
+        {
+          "name": "PINK,BLUE,VIOLET,PANTHER FANCY",
+          "slug": "pink-blue-violet-panther-fancy",
+          "unit": "1 Box",
+          "mrp": 3980.00,
+          "discountPercent": 0,
+          "displayOrder": 6
+        },
+        {
+          "name": "4 1/2\" PINK WORLD (2 PCS)",
+          "slug": "4-1-2-pink-world-2-pcs",
+          "unit": "1 Box",
+          "mrp": 18500.00,
+          "discountPercent": 0,
+          "displayOrder": 7
+        }
+      ]
+    },
+    {
+      "name": "ATM MULTICOLOUR (REPEATING SHOTS)",
+      "slug": "atm-multicolour-repeating-shots",
+      "description": "",
+      "displayOrder": 31,
+      "products": [
+        {
+          "name": "7-AMAZING COLOUR SHOTS",
+          "slug": "7-amazing-colour-shots",
+          "unit": "1 Box",
+          "mrp": 1050.00,
+          "discountPercent": 0,
+          "displayOrder": 1
+        },
+        {
+          "name": "12-SHOTS CRACKLING",
+          "slug": "12-shots-crackling",
+          "unit": "1 Box",
+          "mrp": 1650.00,
+          "discountPercent": 0,
+          "displayOrder": 2
+        },
+        {
+          "name": "25-RIDER SHOTS",
+          "slug": "25-rider-shots",
+          "unit": "1 Box",
+          "mrp": 2400.00,
+          "discountPercent": 0,
+          "displayOrder": 3
+        },
+        {
+          "name": "30-SHOTS BLACK JACK",
+          "slug": "30-shots-black-jack",
+          "unit": "1 Box",
+          "mrp": 3980.00,
+          "discountPercent": 0,
+          "displayOrder": 4
+        },
+        {
+          "name": "60 SHOTS FUNWAR",
+          "slug": "60-shots-funwar",
+          "unit": "1 Box",
+          "mrp": 7850.00,
+          "discountPercent": 0,
+          "displayOrder": 5
+        },
+        {
+          "name": "120 SHOTS DARK KNIGHT",
+          "slug": "120-shots-dark-knight",
+          "unit": "1 Box",
+          "mrp": 15100.00,
+          "discountPercent": 0,
+          "displayOrder": 6
+        },
+        {
+          "name": "240-SHOTS JOYFULL",
+          "slug": "240-shots-joyfull",
+          "unit": "1 Box",
+          "mrp": 33200.00,
+          "discountPercent": 0,
+          "displayOrder": 7
+        },
+        {
+          "name": "500-ATM NIGHT CELEBRATIONS",
+          "slug": "500-atm-night-celebrations",
+          "unit": "1 Box",
+          "mrp": 69000.00,
+          "discountPercent": 0,
+          "displayOrder": 8
+        },
+        {
+          "name": "NEW ARRIVAL 1000-SHOTS",
+          "slug": "new-arrival-1000-shots",
+          "unit": "1 Box",
+          "mrp": 170000.00,
+          "discountPercent": 0,
+          "displayOrder": 9
+        }
+      ]
+    },
+    {
+      "name": "2026 MUSICAL PARTY",
+      "slug": "2026-musical-party",
+      "description": "",
+      "displayOrder": 32,
+      "products": [
+        {
+          "name": "SINGING DOLLS",
+          "slug": "singing-dolls",
+          "unit": "1 Box",
+          "mrp": 2850.00,
+          "discountPercent": 0,
+          "displayOrder": 1
+        },
+        {
+          "name": "(COCATOO)MUSICAL SHOTS",
+          "slug": "cocatoo-musical-shots",
+          "unit": "1 Box",
+          "mrp": 8800.00,
+          "discountPercent": 0,
+          "displayOrder": 2
+        },
+        {
+          "name": "SETTIMAR (36 SHOTS)",
+          "slug": "settimar-36-shots",
+          "unit": "1 Box",
+          "mrp": 1950.00,
+          "discountPercent": 0,
+          "displayOrder": 3
+        },
+        {
+          "name": "WHISTLE READY (49 SHOTS)",
+          "slug": "whistle-ready-49-shots",
+          "unit": "1 Box",
+          "mrp": 2050.00,
+          "discountPercent": 0,
+          "displayOrder": 4
+        },
+        {
+          "name": "JACK DANIES CRACKLING(30 SHOT)",
+          "slug": "jack-danies-crackling-30-shot",
+          "unit": "1 Box",
+          "mrp": 7980.00,
+          "discountPercent": 0,
+          "displayOrder": 5
+        },
+        {
+          "name": "PEACOCK DANCE (30 SHOT)",
+          "slug": "peacock-dance-30-shot",
+          "unit": "1 Box",
+          "mrp": 7200.00,
+          "discountPercent": 0,
+          "displayOrder": 6
+        },
+        {
+          "name": "BLUE & PINK FANTASY (25 SHOT)",
+          "slug": "blue-pink-fantasy-25-shot",
+          "unit": "1 Box",
+          "mrp": 8500.00,
+          "discountPercent": 0,
+          "displayOrder": 7
+        }
+      ]
+    },
+    {
+      "name": "ATM SET OUTS",
+      "slug": "atm-set-outs",
+      "description": "",
+      "displayOrder": 33,
+      "products": [
+        {
+          "name": "RANG CHAKKAR(12 SHOTS)",
+          "slug": "rang-chakkar-12-shots",
+          "unit": "1 Box",
+          "mrp": 3300.00,
+          "discountPercent": 0,
+          "displayOrder": 1
+        },
+        {
+          "name": "HAPPY WHEELS (9 SHOTS)",
+          "slug": "happy-wheels-9-shots",
+          "unit": "1 Box",
+          "mrp": 7500.00,
+          "discountPercent": 0,
+          "displayOrder": 2
+        },
+        {
+          "name": "SIZZLING MAX (15 SHOTS)",
+          "slug": "sizzling-max-15-shots",
+          "unit": "1 Box",
+          "mrp": 7800.00,
+          "discountPercent": 0,
+          "displayOrder": 3
+        },
+        {
+          "name": "CANDY CRASH (9 SHOTS)",
+          "slug": "candy-crash-9-shots",
+          "unit": "1 Box",
+          "mrp": 7600.00,
+          "discountPercent": 0,
+          "displayOrder": 4
+        }
+      ]
+    },
+    {
+      "name": "ATM MEGA SET OUTS",
+      "slug": "atm-mega-set-outs",
+      "description": "",
+      "displayOrder": 34,
+      "products": [
+        {
+          "name": "2\" MAD MAX (25 SHOTS)",
+          "slug": "2-mad-max-25-shots",
+          "unit": "1 Box",
+          "mrp": 39500.00,
+          "discountPercent": 0,
+          "displayOrder": 1
+        },
+        {
+          "name": "3 1/2 X-MAN(16 SHOTS)",
+          "slug": "3-1-2-x-man-16-shots",
+          "unit": "1 Box",
+          "mrp": 49800.00,
+          "discountPercent": 0,
+          "displayOrder": 2
+        }
+      ]
+    },
+    {
+      "name": "ATM KING SPARKLERS",
+      "slug": "atm-king-sparklers",
+      "description": "",
+      "displayOrder": 35,
+      "products": [
+        {
+          "name": "7CM ELECTRIC (10 Pcs)",
+          "slug": "7cm-electric-10-pcs",
+          "unit": "1 Box",
+          "mrp": 85.00,
+          "discountPercent": 0,
+          "displayOrder": 1
+        },
+        {
+          "name": "7CM COLOUR (10 Pcs)",
+          "slug": "7cm-colour-10-pcs",
+          "unit": "1 Box",
+          "mrp": 88.00,
+          "discountPercent": 0,
+          "displayOrder": 2
+        },
+        {
+          "name": "7CM GREEN (10 Pcs)",
+          "slug": "7cm-green-10-pcs",
+          "unit": "1 Box",
+          "mrp": 100.00,
+          "discountPercent": 0,
+          "displayOrder": 3
+        },
+        {
+          "name": "7CM RED (10 Pcs)",
+          "slug": "7cm-red-10-pcs",
+          "unit": "1 Box",
+          "mrp": 110.00,
+          "discountPercent": 0,
+          "displayOrder": 4
+        },
+        {
+          "name": "10CM ELECTRIC (10 Pcs)",
+          "slug": "10cm-electric-10-pcs",
+          "unit": "1 Box",
+          "mrp": 160.00,
+          "discountPercent": 0,
+          "displayOrder": 5
+        },
+        {
+          "name": "10CM COLOUR (10 Pcs)",
+          "slug": "10cm-colour-10-pcs",
+          "unit": "1 Box",
+          "mrp": 180.00,
+          "discountPercent": 0,
+          "displayOrder": 6
+        },
+        {
+          "name": "10CM GREEN (10 Pcs)",
+          "slug": "10cm-green-10-pcs",
+          "unit": "1 Box",
+          "mrp": 195.00,
+          "discountPercent": 0,
+          "displayOrder": 7
+        },
+        {
+          "name": "10CM RED (10 Pcs)",
+          "slug": "10cm-red-10-pcs",
+          "unit": "1 Box",
+          "mrp": 205.00,
+          "discountPercent": 0,
+          "displayOrder": 8
+        },
+        {
+          "name": "12CM ELECTRIC (10 Pcs)",
+          "slug": "12cm-electric-10-pcs",
+          "unit": "1 Box",
+          "mrp": 230.00,
+          "discountPercent": 0,
+          "displayOrder": 9
+        },
+        {
+          "name": "12CM COLOUR (10 Pcs)",
+          "slug": "12cm-colour-10-pcs",
+          "unit": "1 Box",
+          "mrp": 270.00,
+          "discountPercent": 0,
+          "displayOrder": 10
+        },
+        {
+          "name": "15CM ELECTRIC (10 Pcs)",
+          "slug": "15cm-electric-10-pcs",
+          "unit": "1 Box",
+          "mrp": 400.00,
+          "discountPercent": 0,
+          "displayOrder": 11
+        },
+        {
+          "name": "15CM COLOUR (10 Pcs)",
+          "slug": "15cm-colour-10-pcs",
+          "unit": "1 Box",
+          "mrp": 430.00,
+          "discountPercent": 0,
+          "displayOrder": 12
+        },
+        {
+          "name": "15CM GREEN (10 Pcs)",
+          "slug": "15cm-green-10-pcs",
+          "unit": "1 Box",
+          "mrp": 460.00,
+          "discountPercent": 0,
+          "displayOrder": 13
+        },
+        {
+          "name": "15CM RED (10 Pcs)",
+          "slug": "15cm-red-10-pcs",
+          "unit": "1 Box",
+          "mrp": 540.00,
+          "discountPercent": 0,
+          "displayOrder": 14
+        },
+        {
+          "name": "30CM ELECTRIC",
+          "slug": "30cm-electric",
+          "unit": "1 Box",
+          "mrp": 400.00,
+          "discountPercent": 0,
+          "displayOrder": 15
+        },
+        {
+          "name": "30CM COLOUR",
+          "slug": "30cm-colour",
+          "unit": "1 Box",
+          "mrp": 430.00,
+          "discountPercent": 0,
+          "displayOrder": 16
+        },
+        {
+          "name": "30CM GREEN",
+          "slug": "30cm-green",
+          "unit": "1 Box",
+          "mrp": 460.00,
+          "discountPercent": 0,
+          "displayOrder": 17
+        },
+        {
+          "name": "30CM RED",
+          "slug": "30cm-red",
+          "unit": "1 Box",
+          "mrp": 540.00,
+          "discountPercent": 0,
+          "displayOrder": 18
+        },
+        {
+          "name": "50CM ELECTRIC",
+          "slug": "50cm-electric",
+          "unit": "1 Box",
+          "mrp": 1840.00,
+          "discountPercent": 0,
+          "displayOrder": 19
+        },
+        {
+          "name": "50CM COLOUR",
+          "slug": "50cm-colour",
+          "unit": "1 Box",
+          "mrp": 1950.00,
+          "discountPercent": 0,
+          "displayOrder": 20
+        }
+      ]
+    },
+    {
+      "name": "2026 NEW ARRIVAL SPARKLERS",
+      "slug": "2026-new-arrival-sparklers",
+      "description": "",
+      "displayOrder": 36,
+      "products": [
+        {
+          "name": "ATM SPECIAL SPARKLERS(PINK/BLUE/916GOLD)",
+          "slug": "atm-special-sparklers-pink-blue-916gold",
+          "unit": "1 Box",
+          "mrp": 750.00,
+          "discountPercent": 0,
+          "displayOrder": 1
+        },
+        {
+          "name": "NANO SPARKLERS (5 PCS)",
+          "slug": "nano-sparklers-5-pcs",
+          "unit": "1 Box",
+          "mrp": 520.00,
+          "discountPercent": 0,
+          "displayOrder": 2
+        },
+        {
+          "name": "LOVE SPARKLERS",
+          "slug": "love-sparklers",
+          "unit": "1 Box",
+          "mrp": 1160.00,
+          "discountPercent": 0,
+          "displayOrder": 3
+        },
+        {
+          "name": "ROTATING UMBRELLA SPARKLERS",
+          "slug": "rotating-umbrella-sparklers",
+          "unit": "1 Box",
+          "mrp": 2450.00,
+          "discountPercent": 0,
+          "displayOrder": 4
+        },
+        {
+          "name": "LOLLIPOP SPARKLERS (5 PCS)",
+          "slug": "lollipop-sparklers-5-pcs",
+          "unit": "1 Box",
+          "mrp": 1580.00,
+          "discountPercent": 0,
+          "displayOrder": 5
+        }
+      ]
+    },
+    {
+      "name": "ATM COLOR MATCHES",
+      "slug": "atm-color-matches",
+      "description": "",
+      "displayOrder": 37,
+      "products": [
+        {
+          "name": "MINI 10 IN 1",
+          "slug": "mini-10-in-1",
+          "unit": "1 Box",
+          "mrp": 950.00,
+          "discountPercent": 0,
+          "displayOrder": 1
+        },
+        {
+          "name": "7 UP MATCHES",
+          "slug": "7-up-matches",
+          "unit": "1 Box",
+          "mrp": 1820.00,
+          "discountPercent": 0,
+          "displayOrder": 2
+        },
+        {
+          "name": "ROBIN MEGA MATCHES",
+          "slug": "robin-mega-matches",
+          "unit": "1 Box",
+          "mrp": 2410.00,
+          "discountPercent": 0,
+          "displayOrder": 3
+        }
+      ]
+    },
+    {
+      "name": "ATM 2026 - GIFT BOXES (NO DISCOUNT)",
+      "slug": "atm-2026-gift-boxes-no-discount",
+      "description": "",
+      "displayOrder": 38,
+      "products": [
+        {
+          "name": "21 ITEM CHILDREN PACK",
+          "slug": "21-item-children-pack",
+          "unit": "1 Box",
+          "mrp": null,
+          "discountPercent": 0,
+          "displayOrder": 1
+        },
+        {
+          "name": "31 ITEM DIARY MILK PACK",
+          "slug": "31-item-diary-milk-pack",
+          "unit": "1 Box",
+          "mrp": null,
+          "discountPercent": 0,
+          "displayOrder": 2
+        },
+        {
+          "name": "41 ITEM DELIGHT PACK",
+          "slug": "41-item-delight-pack",
+          "unit": "1 Box",
+          "mrp": null,
+          "discountPercent": 0,
+          "displayOrder": 3
+        },
+        {
+          "name": "51 ITEM VIP PACK",
+          "slug": "51-item-vip-pack",
+          "unit": "1 Box",
+          "mrp": null,
+          "discountPercent": 0,
+          "displayOrder": 4
+        },
+        {
+          "name": "61 ITEM ATM PREMIUM PACK",
+          "slug": "61-item-atm-premium-pack",
+          "unit": "1 Box",
+          "mrp": null,
+          "discountPercent": 0,
+          "displayOrder": 5
+        }
+      ]
+    },
+    {
+      "name": "ATM SPECIAL COMBO PACK",
+      "slug": "atm-special-combo-pack",
+      "description": "",
+      "displayOrder": 39,
+      "products": [
+        {
+          "name": "ATM FAMILY PACK",
+          "slug": "atm-family-pack",
+          "unit": "1 Box",
+          "mrp": 3000.00,
+          "discountPercent": 0,
+          "displayOrder": 1
+        },
+        {
+          "name": "ATM SILVER PACK",
+          "slug": "atm-silver-pack",
+          "unit": "1 Box",
+          "mrp": 5000.00,
+          "discountPercent": 0,
+          "displayOrder": 2
+        },
+        {
+          "name": "ATM GOLD PACK",
+          "slug": "atm-gold-pack",
+          "unit": "1 Box",
+          "mrp": 7000.00,
+          "discountPercent": 0,
+          "displayOrder": 3
+        },
+        {
+          "name": "ATM DIAMOND PACK",
+          "slug": "atm-diamond-pack",
+          "unit": "1 Box",
+          "mrp": 10000.00,
+          "discountPercent": 0,
+          "displayOrder": 4
+        }
+      ]
+    }
+  ],
+  "uncertainItems": [
+    {
+      "reason": "MRP missing for gift box products",
+      "items": [
+        "21 ITEM CHILDREN PACK",
+        "31 ITEM DIARY MILK PACK",
+        "41 ITEM DELIGHT PACK",
+        "51 ITEM VIP PACK",
+        "61 ITEM ATM PREMIUM PACK"
+      ]
+    }
+  ],
+  "summary": {
+    "categoryCount": 39,
+    "productCount": 222
+  }
+}

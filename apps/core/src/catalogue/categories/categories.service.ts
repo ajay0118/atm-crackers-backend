@@ -14,6 +14,7 @@ import {
   ProductDocument,
 } from '@libs/contracts/product/product.schema';
 import { buildIdentifierFilter } from '../catalogue.utils';
+import { CommonStatusType } from '@libs/contracts/enums/common.enum';
 
 @Injectable()
 export class CategoriesService {
@@ -24,10 +25,36 @@ export class CategoriesService {
     private readonly productModel: Model<ProductDocument>,
   ) {}
 
-  async findActiveCategories(): Promise<CategoryDocument[]> {
+  async findActiveCategories(): Promise<any[]> {
     return this.categoryModel
-      .find({ isActive: true })
-      .sort({ displayOrder: 1, name: 1 })
+      .aggregate([
+        { $match: { status: CommonStatusType.ACTIVE } },
+        {
+          $lookup: {
+            from: 'products',
+            let: { categoryId: '$_id' },
+            pipeline: [
+              {
+                $match: {
+                  $expr: { $eq: ['$category', '$$categoryId'] },
+                  status: CommonStatusType.ACTIVE,
+                },
+              },
+              { $count: 'count' },
+            ],
+            as: 'productStats',
+          },
+        },
+        {
+          $addFields: {
+            productCount: {
+              $ifNull: [{ $arrayElemAt: ['$productStats.count', 0] }, 0],
+            },
+          },
+        },
+        { $project: { productStats: 0 } },
+        { $sort: { displayOrder: 1, name: 1 } },
+      ])
       .exec();
   }
 
@@ -40,7 +67,7 @@ export class CategoriesService {
 
     const category = await this.categoryModel.findOne({
       ...buildIdentifierFilter(trimmed),
-      isActive: true,
+      status: CommonStatusType.ACTIVE,
     });
 
     if (!category) {
@@ -58,7 +85,7 @@ export class CategoriesService {
     return this.productModel
       .find({
         category: category._id,
-        isActive: true,
+        status: CommonStatusType.ACTIVE,
       })
       .sort({ displayOrder: 1, name: 1 })
       .populate('category')

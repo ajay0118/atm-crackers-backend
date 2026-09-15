@@ -11,6 +11,7 @@ import {
 } from '@libs/contracts/product/product.schema';
 import { CategoriesService } from '../categories/categories.service';
 import { escapeRegExp } from '../catalogue.utils';
+import { CommonStatusType } from '@libs/contracts/enums/common.enum';
 
 @Injectable()
 export class ProductsService {
@@ -24,7 +25,10 @@ export class ProductsService {
     search?: string,
     categoryIdentifier?: string,
   ): Promise<ProductDocument[]> {
-    const query = this.productModel.find().where('isActive').equals(true);
+    const query = this.productModel
+      .find()
+      .where('status')
+      .equals(CommonStatusType.ACTIVE);
 
     if (search?.trim()) {
       const safeSearch = escapeRegExp(search.trim());
@@ -47,8 +51,8 @@ export class ProductsService {
       .exec();
 
     return products.filter((product) => {
-      const category = product.category as { isActive?: boolean } | undefined;
-      return Boolean(category?.isActive !== false);
+      const category = product.category as { status?: string } | undefined;
+      return Boolean(category?.status !== CommonStatusType.INACTIVE);
     });
   }
 
@@ -65,7 +69,7 @@ export class ProductsService {
           { slug: trimmed },
           ...(trimmed.match(/^[a-f\d]{24}$/i) ? [{ _id: trimmed }] : []),
         ],
-        isActive: true,
+        status: CommonStatusType.ACTIVE,
       })
       .populate('category')
       .exec();
@@ -74,8 +78,8 @@ export class ProductsService {
       throw new NotFoundException('Product not found');
     }
 
-    const category = product.category as { isActive?: boolean } | undefined;
-    if (!category?.isActive) {
+    const category = product.category as { status?: string } | undefined;
+    if (category?.status !== CommonStatusType.ACTIVE) {
       throw new NotFoundException('Product not found');
     }
 

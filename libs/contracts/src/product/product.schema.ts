@@ -1,7 +1,10 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { HydratedDocument, Types } from 'mongoose';
 import { Category } from '@libs/contracts/category/category.schema';
-import { StockStatusType } from '@libs/contracts/enums/common.enum';
+import {
+  CommonStatusType,
+  StockStatusType,
+} from '@libs/contracts/enums/common.enum';
 
 @Schema({ timestamps: true })
 export class Product {
@@ -18,7 +21,6 @@ export class Product {
 
   @Prop({
     required: true,
-    unique: true,
     lowercase: true,
     trim: true,
     index: true,
@@ -47,8 +49,13 @@ export class Product {
   })
   stockStatus: StockStatusType;
 
-  @Prop({ default: true, index: true })
-  isActive: boolean;
+  @Prop({
+    type: String,
+    enum: CommonStatusType,
+    default: CommonStatusType.ACTIVE,
+    index: true,
+  })
+  status: CommonStatusType;
 
   @Prop({ default: 0, index: true })
   displayOrder: number;
@@ -57,3 +64,5 @@ export class Product {
 export type ProductDocument = HydratedDocument<Product>;
 
 export const ProductSchema = SchemaFactory.createForClass(Product);
+
+ProductSchema.index({ category: 1, slug: 1 }, { unique: true });

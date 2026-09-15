@@ -6,6 +6,9 @@ import { Connection } from 'mongoose';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { CatalogueModule } from './catalogue/catalogue.module';
+import { CartModule } from './cart/cart.module';
+import { CustomerModule } from './customer/customer.module';
+import { OrderModule } from './order/order.module';
 
 @Module({
   imports: [
@@ -34,6 +37,9 @@ import { CatalogueModule } from './catalogue/catalogue.module';
       }),
     }),
     CatalogueModule,
+    CartModule,
+    CustomerModule,
+    OrderModule,
   ],
   controllers: [AppController],
   providers: [AppService],

@@ -6,8 +6,9 @@ export interface CategoryObject {
   slug?: string;
   description?: string;
   imageUrl?: string;
-  isActive?: boolean;
+  status?: string;
   displayOrder?: number;
+  productCount?: number;
   createdAt?: Date | string;
   updatedAt?: Date | string;
 }
@@ -18,7 +19,8 @@ export interface CategoryResponse {
   slug?: string;
   description?: string;
   imageUrl?: string;
-  isActive?: boolean;
+  status?: string;
+  productCount?: number;
   displayOrder?: number;
   createdAt?: Date | string;
   updatedAt?: Date | string;
@@ -41,7 +43,7 @@ export interface ProductObject {
   discountPercent?: number;
   sellingPrice?: number;
   stockStatus?: string;
-  isActive?: boolean;
+  status?: string;
   displayOrder?: number;
   createdAt?: Date | string;
   updatedAt?: Date | string;
@@ -63,7 +65,7 @@ export interface ProductResponse {
   discountPercent?: number;
   sellingPrice?: number;
   stockStatus?: string;
-  isActive?: boolean;
+  status?: string;
   displayOrder?: number;
   createdAt?: Date | string;
   updatedAt?: Date | string;
@@ -84,8 +86,11 @@ export function mapCategory(category: CategoryObject): CategoryResponse {
     slug: category.slug,
     description: category.description,
     imageUrl: category.imageUrl,
-    isActive: category.isActive,
+    status: category.status,
     displayOrder: category.displayOrder,
+    ...(category.productCount === undefined
+      ? {}
+      : { productCount: category.productCount }),
     createdAt: category.createdAt,
     updatedAt: category.updatedAt,
   };
@@ -119,7 +124,7 @@ export function mapProduct(product: ProductObject): ProductResponse {
     discountPercent: product.discountPercent,
     sellingPrice: product.sellingPrice,
     stockStatus: product.stockStatus,
-    isActive: product.isActive,
+    status: product.status,
     displayOrder: product.displayOrder,
     createdAt: product.createdAt,
     updatedAt: product.updatedAt,

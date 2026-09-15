@@ -21,7 +21,7 @@ export class CategoriesController {
       message: 'Categories fetched successfully',
       count: categories.length,
       data: categories.map((category) =>
-        mapCategory(category.toObject() as Parameters<typeof mapCategory>[0]),
+        mapCategory(category as Parameters<typeof mapCategory>[0]),
       ),
     };
   }

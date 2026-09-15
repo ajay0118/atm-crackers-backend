@@ -1,5 +1,6 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { HydratedDocument } from 'mongoose';
+import { CommonStatusType } from '@libs/contracts/enums/common.enum';
 
 @Schema({ timestamps: true })
 export class Category {
@@ -21,8 +22,13 @@ export class Category {
   @Prop({ default: '', trim: true })
   imageUrl: string;
 
-  @Prop({ default: true, index: true })
-  isActive: boolean;
+  @Prop({
+    type: String,
+    enum: CommonStatusType,
+    default: CommonStatusType.ACTIVE,
+    index: true,
+  })
+  status: CommonStatusType;
 
   @Prop({ default: 0, index: true })
   displayOrder: number;

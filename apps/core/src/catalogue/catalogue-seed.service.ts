@@ -11,7 +11,10 @@ import {
   Product,
   ProductDocument,
 } from '@libs/contracts/product/product.schema';
-import { StockStatusType } from '@libs/contracts/enums/common.enum';
+import {
+  CommonStatusType,
+  StockStatusType,
+} from '@libs/contracts/enums/common.enum';
 import { calculateSellingPrice, slugify } from './catalogue.utils';
 import { CatalogueSeedFile } from './catalogue.seed.types';
 
@@ -67,7 +70,7 @@ export class CatalogueSeedService implements OnApplicationBootstrap {
         slug: slugify(categorySeed.name),
         description: '',
         imageUrl: categoryImageUrl,
-        isActive: true,
+        status: CommonStatusType.ACTIVE,
         displayOrder: categorySeed.displayOrder ?? categoryIndex + 1,
       });
 
@@ -81,7 +84,7 @@ export class CatalogueSeedService implements OnApplicationBootstrap {
         discountPercent: 0,
         sellingPrice: calculateSellingPrice(productSeed.mrp, 0),
         stockStatus: StockStatusType.IN_STOCK,
-        isActive: true,
+        status: CommonStatusType.ACTIVE,
         displayOrder: productSeed.displayOrder ?? index + 1,
       }));
 
