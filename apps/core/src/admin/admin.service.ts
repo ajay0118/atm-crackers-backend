@@ -1,4 +1,4 @@
-import { BadRequestException, Injectable, UnauthorizedException } from '@nestjs/common';
+import { BadRequestException, ConflictException, Injectable, UnauthorizedException } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { JwtService } from '@nestjs/jwt';
 import * as bcrypt from 'bcrypt';
@@ -9,6 +9,7 @@ import { AdminRefreshToken, AdminRefreshTokenDocument } from '@libs/contracts/ad
 import { AdminLoginDto } from './dto/admin-login.dto';
 import { ChangePasswordDto } from './dto/change-password.dto';
 import { RefreshTokenDto } from './dto/refresh-token.dto';
+import { UpdateProfileDto } from './dto/update-profile.dto';
 import { ConfigService } from '@nestjs/config';
 
 @Injectable()
@@ -115,5 +116,37 @@ export class AdminService {
     admin.passwordHash = await bcrypt.hash(dto.newPassword, 12);
     await admin.save();
     return { message: 'Admin password changed successfully' };
+  }
+
+  async updateProfile(adminId: string, dto: UpdateProfileDto) {
+    if (!dto.name && !dto.email) {
+      throw new BadRequestException('At least one profile field is required');
+    }
+
+    const admin = await this.adminModel
+      .findOne({ _id: adminId, status: AdminStatus.ACTIVE })
+      .select('+passwordHash')
+      .exec();
+    if (!admin) throw new UnauthorizedException('Admin account is inactive');
+
+    const emailChanged = Boolean(dto.email && dto.email !== admin.email);
+    if (emailChanged) {
+      if (!dto.currentPassword || !(await bcrypt.compare(dto.currentPassword, admin.passwordHash))) {
+        throw new UnauthorizedException('Current password is required to change email');
+      }
+      const nextEmail = dto.email as string;
+      const existingAdmin = await this.adminModel.findOne({ email: nextEmail, _id: { $ne: adminId } }).exec();
+      if (existingAdmin) throw new ConflictException('An admin with this email already exists');
+      admin.email = nextEmail;
+      await this.refreshTokenModel.deleteMany({ adminId }).exec();
+    }
+
+    if (dto.name) admin.name = dto.name;
+    await admin.save();
+
+    return {
+      message: 'Admin profile updated successfully',
+      admin: { id: admin.id, name: admin.name, email: admin.email, role: admin.role },
+    };
   }
 }

@@ -10,6 +10,7 @@ import { JwtAuthGuard } from './guards/jwt-auth.guard';
 import { AdminRolesGuard } from './guards/roles.guard';
 import { ChangePasswordDto } from './dto/change-password.dto';
 import { RefreshTokenDto } from './dto/refresh-token.dto';
+import { UpdateProfileDto } from './dto/update-profile.dto';
 
 @ApiTags('admin-auth')
 @Controller('admin/auth')
@@ -77,5 +78,16 @@ export class AdminController {
     @Body() dto: ChangePasswordDto,
   ) {
     return this.adminService.changePassword(request.user.adminId, dto);
+  }
+
+  @Patch('profile')
+  @ApiBearerAuth()
+  @UseGuards(JwtAuthGuard, AdminRolesGuard)
+  @AdminRoles(AdminRole.ADMIN)
+  updateProfile(
+    @Req() request: Request & { user: AdminRequestUser },
+    @Body() dto: UpdateProfileDto,
+  ) {
+    return this.adminService.updateProfile(request.user.adminId, dto);
   }
 }
