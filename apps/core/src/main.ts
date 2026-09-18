@@ -2,9 +2,11 @@ import { NestFactory } from '@nestjs/core';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import { AppModule } from './app.module';
 import { ValidationPipe } from '@nestjs/common';
+import cookieParser from 'cookie-parser';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
+  app.use(cookieParser());
   app.enableCors({ origin: true, credentials: false });
   app.useGlobalPipes(new ValidationPipe({ whitelist: true, transform: true }));
 
@@ -14,6 +16,15 @@ async function bootstrap() {
       'API documentation for the ATM Crackers Online Ordering System',
     )
     .setVersion('1.0')
+    .addBearerAuth(
+      {
+        type: 'http',
+        scheme: 'bearer',
+        bearerFormat: 'JWT',
+        description: 'Enter the JWT access token',
+      },
+      'bearer',
+    )
     .build();
 
   const document = SwaggerModule.createDocument(app, config);
