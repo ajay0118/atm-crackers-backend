@@ -4,7 +4,10 @@ import { JwtModule } from '@nestjs/jwt';
 import { InjectModel, MongooseModule } from '@nestjs/mongoose';
 import { PassportModule } from '@nestjs/passport';
 import { Admin, AdminSchema } from '@libs/contracts/admin/admin.schema';
-import { AdminRefreshToken, AdminRefreshTokenSchema } from '@libs/contracts/admin/admin-refresh-token.schema';
+import {
+  AdminRefreshToken,
+  AdminRefreshTokenSchema,
+} from '@libs/contracts/admin/admin-refresh-token.schema';
 import { AdminController } from './admin.controller';
 import { AdminService } from './admin.service';
 import { AdminJwtStrategy } from './strategies/admin-jwt.strategy';
@@ -20,7 +23,10 @@ class AdminBootstrap implements OnModuleInit {
   ) {}
 
   async onModuleInit() {
-    const email = this.config.get<string>('ADMIN_SEED_EMAIL')?.trim().toLowerCase();
+    const email = this.config
+      .get<string>('ADMIN_SEED_EMAIL')
+      ?.trim()
+      .toLowerCase();
     const password = this.config.get<string>('ADMIN_SEED_PASSWORD');
     if (!email || !password) return;
     if (await this.adminModel.exists({ email })) return;
@@ -42,7 +48,14 @@ class AdminBootstrap implements OnModuleInit {
       { name: AdminRefreshToken.name, schema: AdminRefreshTokenSchema },
     ]),
     PassportModule,
-    JwtModule.registerAsync({ imports: [ConfigModule], inject: [ConfigService], useFactory: (config: ConfigService) => ({ secret: config.getOrThrow('ADMIN_JWT_SECRET'), signOptions: { expiresIn: '15m' } }) }),
+    JwtModule.registerAsync({
+      imports: [ConfigModule],
+      inject: [ConfigService],
+      useFactory: (config: ConfigService) => ({
+        secret: config.getOrThrow('ADMIN_JWT_SECRET'),
+        signOptions: { expiresIn: '15m' },
+      }),
+    }),
   ],
   controllers: [AdminController],
   providers: [AdminService, AdminJwtStrategy, AdminRolesGuard, AdminBootstrap],

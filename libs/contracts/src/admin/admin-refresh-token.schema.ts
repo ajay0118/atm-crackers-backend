@@ -14,5 +14,6 @@ export class AdminRefreshToken {
 }
 
 export type AdminRefreshTokenDocument = HydratedDocument<AdminRefreshToken>;
-export const AdminRefreshTokenSchema = SchemaFactory.createForClass(AdminRefreshToken);
+export const AdminRefreshTokenSchema =
+  SchemaFactory.createForClass(AdminRefreshToken);
 AdminRefreshTokenSchema.index({ expiresAt: 1 }, { expireAfterSeconds: 0 });

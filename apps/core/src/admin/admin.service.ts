@@ -1,11 +1,23 @@
-import { BadRequestException, ConflictException, Injectable, UnauthorizedException } from '@nestjs/common';
+import {
+  BadRequestException,
+  ConflictException,
+  Injectable,
+  UnauthorizedException,
+} from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { JwtService } from '@nestjs/jwt';
 import * as bcrypt from 'bcrypt';
 import { Model } from 'mongoose';
 import { createHash, randomUUID } from 'crypto';
-import { Admin, AdminDocument, AdminStatus } from '@libs/contracts/admin/admin.schema';
-import { AdminRefreshToken, AdminRefreshTokenDocument } from '@libs/contracts/admin/admin-refresh-token.schema';
+import {
+  Admin,
+  AdminDocument,
+  AdminStatus,
+} from '@libs/contracts/admin/admin.schema';
+import {
+  AdminRefreshToken,
+  AdminRefreshTokenDocument,
+} from '@libs/contracts/admin/admin-refresh-token.schema';
 import { AdminLoginDto } from './dto/admin-login.dto';
 import { ChangePasswordDto } from './dto/change-password.dto';
 import { RefreshTokenDto } from './dto/refresh-token.dto';
@@ -16,7 +28,8 @@ import { ConfigService } from '@nestjs/config';
 export class AdminService {
   constructor(
     @InjectModel(Admin.name) private readonly adminModel: Model<AdminDocument>,
-    @InjectModel(AdminRefreshToken.name) private readonly refreshTokenModel: Model<AdminRefreshTokenDocument>,
+    @InjectModel(AdminRefreshToken.name)
+    private readonly refreshTokenModel: Model<AdminRefreshTokenDocument>,
     private readonly jwtService: JwtService,
     private readonly config: ConfigService,
   ) {}
@@ -32,7 +45,15 @@ export class AdminService {
     admin.lastLoginAt = new Date();
     await admin.save();
     const tokens = await this.issueTokens(admin);
-    return { ...tokens, admin: { id: admin.id, name: admin.name, email: admin.email, role: admin.role } };
+    return {
+      ...tokens,
+      admin: {
+        id: admin.id,
+        name: admin.name,
+        email: admin.email,
+        role: admin.role,
+      },
+    };
   }
 
   private hashRefreshToken(token: string) {
@@ -62,7 +83,8 @@ export class AdminService {
   }
 
   async refresh(refreshToken: string) {
-    if (!refreshToken) throw new UnauthorizedException('Refresh token is required');
+    if (!refreshToken)
+      throw new UnauthorizedException('Refresh token is required');
     let payload: { sub: string; email: string; role: Admin['role'] };
     try {
       payload = await this.jwtService.verifyAsync(refreshToken, {
@@ -88,17 +110,24 @@ export class AdminService {
       throw new UnauthorizedException('Invalid or expired refresh token');
     }
     if (tokenRecord.adminId.toString() !== payload.sub) {
-      console.error('[AdminAuth] Refresh token owner mismatch', { adminId: payload.sub });
+      console.error('[AdminAuth] Refresh token owner mismatch', {
+        adminId: payload.sub,
+      });
       throw new UnauthorizedException('Invalid or expired refresh token');
     }
-    const admin = await this.adminModel.findOne({ _id: payload.sub, status: AdminStatus.ACTIVE }).exec();
+    const admin = await this.adminModel
+      .findOne({ _id: payload.sub, status: AdminStatus.ACTIVE })
+      .exec();
     if (!admin) throw new UnauthorizedException('Admin account is inactive');
     await tokenRecord.deleteOne();
     return this.issueTokens(admin);
   }
 
   async logout(refreshToken?: string) {
-    if (refreshToken) await this.refreshTokenModel.deleteOne({ tokenHash: this.hashRefreshToken(refreshToken) }).exec();
+    if (refreshToken)
+      await this.refreshTokenModel
+        .deleteOne({ tokenHash: this.hashRefreshToken(refreshToken) })
+        .exec();
     return { message: 'Admin logged out successfully' };
   }
 
@@ -107,11 +136,16 @@ export class AdminService {
       .findOne({ _id: adminId, status: AdminStatus.ACTIVE })
       .select('+passwordHash')
       .exec();
-    if (!admin || !(await bcrypt.compare(dto.currentPassword, admin.passwordHash))) {
+    if (
+      !admin ||
+      !(await bcrypt.compare(dto.currentPassword, admin.passwordHash))
+    ) {
       throw new UnauthorizedException('Current password is incorrect');
     }
     if (dto.currentPassword === dto.newPassword) {
-      throw new BadRequestException('New password must be different from the current password');
+      throw new BadRequestException(
+        'New password must be different from the current password',
+      );
     }
     admin.passwordHash = await bcrypt.hash(dto.newPassword, 12);
     await admin.save();
@@ -131,12 +165,20 @@ export class AdminService {
 
     const emailChanged = Boolean(dto.email && dto.email !== admin.email);
     if (emailChanged) {
-      if (!dto.currentPassword || !(await bcrypt.compare(dto.currentPassword, admin.passwordHash))) {
-        throw new UnauthorizedException('Current password is required to change email');
+      if (
+        !dto.currentPassword ||
+        !(await bcrypt.compare(dto.currentPassword, admin.passwordHash))
+      ) {
+        throw new UnauthorizedException(
+          'Current password is required to change email',
+        );
       }
       const nextEmail = dto.email as string;
-      const existingAdmin = await this.adminModel.findOne({ email: nextEmail, _id: { $ne: adminId } }).exec();
-      if (existingAdmin) throw new ConflictException('An admin with this email already exists');
+      const existingAdmin = await this.adminModel
+        .findOne({ email: nextEmail, _id: { $ne: adminId } })
+        .exec();
+      if (existingAdmin)
+        throw new ConflictException('An admin with this email already exists');
       admin.email = nextEmail;
       await this.refreshTokenModel.deleteMany({ adminId }).exec();
     }
@@ -146,7 +188,12 @@ export class AdminService {
 
     return {
       message: 'Admin profile updated successfully',
-      admin: { id: admin.id, name: admin.name, email: admin.email, role: admin.role },
+      admin: {
+        id: admin.id,
+        name: admin.name,
+        email: admin.email,
+        role: admin.role,
+      },
     };
   }
 }

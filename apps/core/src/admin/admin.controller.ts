@@ -1,4 +1,13 @@
-import { Body, Controller, Get, Patch, Post, Req, Res, UseGuards } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Get,
+  Patch,
+  Post,
+  Req,
+  Res,
+  UseGuards,
+} from '@nestjs/common';
 import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
 import type { Request, Response } from 'express';
 import { AdminRole } from '@libs/contracts/admin/admin.schema';
@@ -18,7 +27,10 @@ export class AdminController {
   constructor(private readonly adminService: AdminService) {}
 
   @Post('login')
-  async login(@Body() dto: AdminLoginDto, @Res({ passthrough: true }) response: Response) {
+  async login(
+    @Body() dto: AdminLoginDto,
+    @Res({ passthrough: true }) response: Response,
+  ) {
     const result = await this.adminService.login(dto);
     this.setRefreshCookie(response, result.refreshToken);
     return result;
@@ -30,7 +42,10 @@ export class AdminController {
     @Req() request: Request,
     @Res({ passthrough: true }) response: Response,
   ) {
-    const refreshToken = dto.refreshToken || (request as Request & { cookies?: Record<string, string> }).cookies?.admin_refresh_token;
+    const refreshToken =
+      dto.refreshToken ||
+      (request as Request & { cookies?: Record<string, string> }).cookies
+        ?.admin_refresh_token;
     const result = await this.adminService.refresh(refreshToken);
     this.setRefreshCookie(response, result.refreshToken);
     return result;
@@ -42,7 +57,11 @@ export class AdminController {
     @Req() request: Request,
     @Res({ passthrough: true }) response: Response,
   ) {
-    await this.adminService.logout(dto.refreshToken || (request as Request & { cookies?: Record<string, string> }).cookies?.admin_refresh_token);
+    await this.adminService.logout(
+      dto.refreshToken ||
+        (request as Request & { cookies?: Record<string, string> }).cookies
+          ?.admin_refresh_token,
+    );
     response.clearCookie('admin_refresh_token', this.cookieOptions());
     return { message: 'Admin logged out successfully' };
   }
@@ -55,19 +74,28 @@ export class AdminController {
   }
 
   private cookieOptions() {
-    return { httpOnly: true, secure: process.env.NODE_ENV === 'production', sameSite: 'lax' as const, path: '/admin/auth' };
+    return {
+      httpOnly: true,
+      secure: process.env.NODE_ENV === 'production',
+      sameSite: 'lax' as const,
+      path: '/admin/auth',
+    };
   }
 
   @Get('me')
   @ApiBearerAuth()
   @UseGuards(JwtAuthGuard)
-  me(@Req() request: Request & { user: AdminRequestUser }) { return { data: request.user }; }
+  me(@Req() request: Request & { user: AdminRequestUser }) {
+    return { data: request.user };
+  }
 
   @Get('access-check')
   @ApiBearerAuth()
   @UseGuards(JwtAuthGuard, AdminRolesGuard)
   @AdminRoles(AdminRole.ADMIN)
-  adminAccessCheck() { return { message: 'Admin access granted' }; }
+  adminAccessCheck() {
+    return { message: 'Admin access granted' };
+  }
 
   @Patch('password')
   @ApiBearerAuth()

@@ -15,7 +15,13 @@ export class Admin {
   @Prop({ required: true, trim: true })
   name: string;
 
-  @Prop({ required: true, trim: true, lowercase: true, unique: true, index: true })
+  @Prop({
+    required: true,
+    trim: true,
+    lowercase: true,
+    unique: true,
+    index: true,
+  })
   email: string;
 
   @Prop({ required: true, select: false })
