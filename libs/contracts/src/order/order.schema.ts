@@ -1,15 +1,35 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { HydratedDocument, Types } from 'mongoose';
 
-export enum OrderStatusType { PENDING = 'PENDING', CONFIRMED = 'CONFIRMED', PROCESSING = 'PROCESSING', PACKED = 'PACKED', SHIPPED = 'SHIPPED', DELIVERED = 'DELIVERED', CANCELLED = 'CANCELLED' }
-export enum PaymentStatusType { PENDING = 'PENDING', PAID = 'PAID', FAILED = 'FAILED', REFUNDED = 'REFUNDED' }
-export enum DeliveryMethodType { STANDARD = 'STANDARD', EXPRESS = 'EXPRESS' }
-export enum PaymentMethodType { MANUAL = 'MANUAL' }
+export enum OrderStatusType {
+  PENDING = 'PENDING',
+  CONFIRMED = 'CONFIRMED',
+  PROCESSING = 'PROCESSING',
+  PACKED = 'PACKED',
+  SHIPPED = 'SHIPPED',
+  DELIVERED = 'DELIVERED',
+  CANCELLED = 'CANCELLED',
+}
+export enum PaymentStatusType {
+  PENDING = 'PENDING',
+  PAID = 'PAID',
+  FAILED = 'FAILED',
+  REFUNDED = 'REFUNDED',
+}
+export enum DeliveryMethodType {
+  STANDARD = 'STANDARD',
+  EXPRESS = 'EXPRESS',
+}
+export enum PaymentMethodType {
+  MANUAL = 'MANUAL',
+}
 
 @Schema({ _id: false })
 export class OrderItem {
-  @Prop({ type: Types.ObjectId, required: true, ref: 'Product' }) productId: Types.ObjectId;
-  @Prop({ type: Types.ObjectId, required: true, ref: 'Category' }) categoryId: Types.ObjectId;
+  @Prop({ type: Types.ObjectId, required: true, ref: 'Product' })
+  productId: Types.ObjectId;
+  @Prop({ type: Types.ObjectId, required: true, ref: 'Category' })
+  categoryId: Types.ObjectId;
   @Prop({ required: true }) productName: string;
   @Prop({ required: true }) categoryName: string;
   @Prop({ default: '' }) image: string;
@@ -45,19 +65,30 @@ export class Order {
   createdAt?: Date;
   updatedAt?: Date;
   @Prop({ required: true, unique: true, index: true }) orderNumber: string;
-  @Prop({ type: Types.ObjectId, required: true, ref: 'Customer' }) customerId: Types.ObjectId;
+  @Prop({ required: true, index: true }) cartKey: string;
+  @Prop({ type: Types.ObjectId, required: true, ref: 'Customer' })
+  customerId: Types.ObjectId;
   @Prop({ required: true, index: true }) customerMobile: string;
   @Prop({ type: OrderCustomerSchema, required: true }) customer: OrderCustomer;
-  @Prop({ type: OrderAddressSchema, required: true }) shippingAddress: OrderAddress;
+  @Prop({ type: OrderAddressSchema, required: true })
+  shippingAddress: OrderAddress;
   @Prop({ type: [OrderItemSchema], required: true }) items: OrderItem[];
   @Prop({ required: true, min: 0 }) subtotal: number;
   @Prop({ required: true, min: 0 }) totalDiscount: number;
   @Prop({ required: true, min: 0 }) deliveryCharge: number;
   @Prop({ required: true, min: 0 }) grandTotal: number;
-  @Prop({ enum: DeliveryMethodType, required: true }) deliveryMethod: DeliveryMethodType;
-  @Prop({ enum: PaymentMethodType, default: PaymentMethodType.MANUAL }) paymentMethod: PaymentMethodType;
-  @Prop({ enum: PaymentStatusType, default: PaymentStatusType.PENDING }) paymentStatus: PaymentStatusType;
-  @Prop({ enum: OrderStatusType, default: OrderStatusType.PENDING, index: true }) orderStatus: OrderStatusType;
+  @Prop({ enum: DeliveryMethodType, required: true })
+  deliveryMethod: DeliveryMethodType;
+  @Prop({ enum: PaymentMethodType, default: PaymentMethodType.MANUAL })
+  paymentMethod: PaymentMethodType;
+  @Prop({ enum: PaymentStatusType, default: PaymentStatusType.PENDING })
+  paymentStatus: PaymentStatusType;
+  @Prop({
+    enum: OrderStatusType,
+    default: OrderStatusType.PENDING,
+    index: true,
+  })
+  orderStatus: OrderStatusType;
   @Prop({ default: null, trim: true }) promoCode?: string;
 }
 export type OrderDocument = HydratedDocument<Order>;
