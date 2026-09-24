@@ -12,6 +12,7 @@ import { OrderModule } from './order/order.module';
 import { AdminModule } from './admin/admin.module';
 import { AdminCategoryModule } from './admin-category/admin-category.module';
 import { AdminProductModule } from './admin-product/admin-product.module';
+import { AdminOrderModule } from './admin-order/admin-order.module';
 
 @Module({
   imports: [
@@ -46,6 +47,7 @@ import { AdminProductModule } from './admin-product/admin-product.module';
     AdminModule,
     AdminCategoryModule,
     AdminProductModule,
+    AdminOrderModule,
   ],
   controllers: [AppController],
   providers: [AppService],
