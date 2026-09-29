@@ -94,6 +94,14 @@ export class OrderService {
         throw new BadRequestException(
           `Product ${cartItem.productId} is no longer available`,
         );
+      if (
+        product.stockQuantity !== undefined &&
+        cartItem.quantity > product.stockQuantity
+      ) {
+        throw new BadRequestException(
+          `Only ${product.stockQuantity} item(s) are available for ${product.name}`,
+        );
+      }
       const category = product.category as Category & { _id: Types.ObjectId };
       if (!category || category.status !== CommonStatusType.ACTIVE)
         throw new BadRequestException(
@@ -130,6 +138,60 @@ export class OrderService {
       deliveryCharge,
       grandTotal: itemTotal + deliveryCharge,
     };
+  }
+
+  private async deductStock(items: Array<{ productId: Types.ObjectId; quantity: number }>) {
+    const deducted: Array<{ productId: Types.ObjectId; quantity: number }> = [];
+    try {
+      for (const item of items) {
+        const result = await this.productModel.updateOne(
+          {
+            _id: item.productId,
+            stockQuantity: { $gte: item.quantity },
+          },
+          { $inc: { stockQuantity: -item.quantity } },
+        );
+        if (result.modifiedCount === 0) {
+          throw new BadRequestException('Insufficient stock for one or more products');
+        }
+        deducted.push(item);
+        await this.refreshStockStatus(item.productId);
+      }
+      return true;
+    } catch (error) {
+      for (const item of deducted) {
+        await this.productModel.updateOne(
+          { _id: item.productId },
+          { $inc: { stockQuantity: item.quantity } },
+        );
+      }
+      throw error;
+    }
+  }
+
+  private async restoreStock(order: OrderDocument) {
+    if (!order.stockDeducted) return;
+    for (const item of order.items) {
+      await this.productModel.updateOne(
+        { _id: item.productId },
+        { $inc: { stockQuantity: item.quantity } },
+      );
+      await this.refreshStockStatus(item.productId);
+    }
+    order.stockDeducted = false;
+  }
+
+  private async refreshStockStatus(productId: Types.ObjectId) {
+    const product = await this.productModel.findById(productId).exec();
+    if (!product || product.stockQuantity === undefined) return;
+    const threshold = product.lowStockThreshold ?? 10;
+    product.stockStatus =
+      product.stockQuantity === 0
+        ? StockStatusType.OUT_OF_STOCK
+        : product.stockQuantity <= threshold
+          ? StockStatusType.LOW_STOCK
+          : StockStatusType.IN_STOCK;
+    await product.save();
   }
   private result(order: OrderDocument) {
     return {
@@ -177,6 +239,7 @@ export class OrderService {
     const calculated = await this.calculate(dto);
     const cartKey = this.normalizeCartKey(dto.cartKey);
     const customer = await this.customer(dto);
+    await this.deductStock(calculated.items);
     const order = new this.orderModel({
       orderNumber: await this.orderNumber(),
       cartKey,
@@ -198,8 +261,14 @@ export class OrderService {
       paymentStatus: PaymentStatusType.PENDING,
       orderStatus: OrderStatusType.PENDING,
       promoCode: dto.promoCode ?? null,
+      stockDeducted: true,
     });
-    await order.save();
+    try {
+      await order.save();
+    } catch (error) {
+      await this.restoreStock(order);
+      throw error;
+    }
     calculated.cart.items = [];
     await calculated.cart.save();
     return {
@@ -254,6 +323,7 @@ export class OrderService {
     )
       throw new BadRequestException('This order cannot be cancelled');
     order.orderStatus = OrderStatusType.CANCELLED;
+    await this.restoreStock(order);
     await order.save();
     return {
       message: 'Order cancelled successfully',

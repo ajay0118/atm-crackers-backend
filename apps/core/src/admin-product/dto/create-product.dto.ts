@@ -84,6 +84,20 @@ export class CreateProductDto {
   @IsEnum(StockStatusType)
   stockStatus?: StockStatusType;
 
+  @ApiPropertyOptional({ example: 100, minimum: 0 })
+  @IsOptional()
+  @Type(() => Number)
+  @IsInt()
+  @Min(0)
+  stockQuantity?: number;
+
+  @ApiPropertyOptional({ example: 10, minimum: 0, default: 10 })
+  @IsOptional()
+  @Type(() => Number)
+  @IsInt()
+  @Min(0)
+  lowStockThreshold?: number;
+
   @ApiPropertyOptional({
     enum: CommonStatusType,
     default: CommonStatusType.ACTIVE,

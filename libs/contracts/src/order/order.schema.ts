@@ -90,6 +90,7 @@ export class Order {
   })
   orderStatus: OrderStatusType;
   @Prop({ default: null, trim: true }) promoCode?: string;
+  @Prop({ default: false }) stockDeducted: boolean;
 }
 export type OrderDocument = HydratedDocument<Order>;
 export const OrderSchema = SchemaFactory.createForClass(Order);

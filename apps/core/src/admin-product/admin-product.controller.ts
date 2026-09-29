@@ -71,7 +71,7 @@ export class AdminProductController {
   @ApiQuery({
     name: 'stockStatus',
     required: false,
-    enum: ['in_stock', 'limited', 'out_of_stock'],
+    enum: ['in_stock', 'low_stock', 'out_of_stock'],
   })
   @ApiOkResponse({ description: 'Admin products fetched successfully' })
   @ApiBadRequestResponse({ description: 'Invalid filter value' })

@@ -45,6 +45,12 @@ export class AdminProductService {
     return Math.round((mrp - (mrp * discountPercent) / 100) * 100) / 100;
   }
 
+  private calculateStockStatus(quantity?: number, threshold = 10, fallback?: StockStatusType) {
+    if (quantity === undefined) return fallback ?? StockStatusType.IN_STOCK;
+    if (quantity === 0) return StockStatusType.OUT_OF_STOCK;
+    return quantity <= threshold ? StockStatusType.LOW_STOCK : StockStatusType.IN_STOCK;
+  }
+
   private async findCategory(categoryId: string, requireActive = true) {
     if (!Types.ObjectId.isValid(categoryId))
       throw new BadRequestException('Invalid category id');
@@ -87,10 +93,25 @@ export class AdminProductService {
 
   private result(product: ProductDocument) {
     const value = product.toObject() as unknown as Record<string, unknown>;
-    const category =
+    const populatedCategory =
       typeof value.category === 'object' && value.category !== null
-        ? value.category
-        : value.category;
+        ? (value.category as Record<string, unknown>)
+        : undefined;
+    const category = populatedCategory
+      ? {
+          id: String(populatedCategory._id),
+          name: populatedCategory.name,
+          slug: populatedCategory.slug,
+          displayOrder: populatedCategory.displayOrder,
+        }
+      : value.category;
+    if (typeof value.stockQuantity === 'number') {
+      value.stockStatus = this.calculateStockStatus(
+        value.stockQuantity,
+        typeof value.lowStockThreshold === 'number' ? value.lowStockThreshold : 10,
+        value.stockStatus as StockStatusType,
+      );
+    }
     return { ...value, category, id: product._id.toString() };
   }
 
@@ -109,7 +130,13 @@ export class AdminProductService {
       mrp: dto.mrp,
       discountPercent: dto.discountPercent,
       sellingPrice: this.price(dto.mrp, dto.discountPercent),
-      stockStatus: dto.stockStatus ?? StockStatusType.IN_STOCK,
+      stockQuantity: dto.stockQuantity,
+      lowStockThreshold: dto.lowStockThreshold ?? 10,
+      stockStatus: this.calculateStockStatus(
+        dto.stockQuantity,
+        dto.lowStockThreshold ?? 10,
+        dto.stockStatus ?? StockStatusType.IN_STOCK,
+      ),
       status: dto.status ?? CommonStatusType.ACTIVE,
       displayOrder: dto.displayOrder ?? 0,
     });
@@ -170,6 +197,9 @@ export class AdminProductService {
     await this.ensureUnique(categoryId, nextSlug, id);
     const mrp = dto.mrp ?? product.mrp;
     const discountPercent = dto.discountPercent ?? product.discountPercent;
+    const stockQuantity = dto.stockQuantity ?? product.stockQuantity;
+    const lowStockThreshold =
+      dto.lowStockThreshold ?? product.lowStockThreshold ?? 10;
     Object.assign(product, {
       category: categoryId,
       name: nextName,
@@ -177,6 +207,13 @@ export class AdminProductService {
       mrp,
       discountPercent,
       sellingPrice: this.price(mrp, discountPercent),
+      stockQuantity,
+      lowStockThreshold,
+      stockStatus: this.calculateStockStatus(
+        stockQuantity,
+        lowStockThreshold,
+        dto.stockStatus ?? product.stockStatus,
+      ),
       ...(dto.description !== undefined && {
         description: dto.description.trim(),
       }),

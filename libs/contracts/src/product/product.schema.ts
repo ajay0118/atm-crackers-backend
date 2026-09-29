@@ -49,6 +49,12 @@ export class Product {
   })
   stockStatus: StockStatusType;
 
+  @Prop({ min: 0 })
+  stockQuantity?: number;
+
+  @Prop({ min: 0, default: 10 })
+  lowStockThreshold?: number;
+
   @Prop({
     type: String,
     enum: CommonStatusType,

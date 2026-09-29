@@ -30,6 +30,7 @@ export interface ProductCategoryObject {
   _id?: MongoIdLike;
   name?: string;
   slug?: string;
+  displayOrder?: number;
 }
 
 export interface ProductObject {
@@ -43,6 +44,8 @@ export interface ProductObject {
   discountPercent?: number;
   sellingPrice?: number;
   stockStatus?: string;
+  stockQuantity?: number;
+  lowStockThreshold?: number;
   status?: string;
   displayOrder?: number;
   createdAt?: Date | string;
@@ -56,6 +59,7 @@ export interface ProductResponse {
     id: string;
     name?: string;
     slug?: string;
+    displayOrder?: number;
   };
   name?: string;
   slug?: string;
@@ -65,6 +69,8 @@ export interface ProductResponse {
   discountPercent?: number;
   sellingPrice?: number;
   stockStatus?: string;
+  stockQuantity?: number;
+  lowStockThreshold?: number;
   status?: string;
   displayOrder?: number;
   createdAt?: Date | string;
@@ -114,6 +120,7 @@ export function mapProduct(product: ProductObject): ProductResponse {
           id: toId(category._id),
           name: category.name,
           slug: category.slug,
+          displayOrder: category.displayOrder,
         }
       : undefined,
     name: product.name,
@@ -124,6 +131,8 @@ export function mapProduct(product: ProductObject): ProductResponse {
     discountPercent: product.discountPercent,
     sellingPrice: product.sellingPrice,
     stockStatus: product.stockStatus,
+    stockQuantity: product.stockQuantity,
+    lowStockThreshold: product.lowStockThreshold,
     status: product.status,
     displayOrder: product.displayOrder,
     createdAt: product.createdAt,

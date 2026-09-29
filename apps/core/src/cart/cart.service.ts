@@ -51,6 +51,17 @@ export class CartService {
     return product;
   }
 
+  private validateQuantity(product: ProductDocument, quantity: number) {
+    if (
+      product.stockQuantity !== undefined &&
+      quantity > product.stockQuantity
+    ) {
+      throw new BadRequestException(
+        `Only ${product.stockQuantity} item(s) are available for ${product.name}`,
+      );
+    }
+  }
+
   private async getOrCreateCart(cartKey: string): Promise<CartDocument> {
     return this.cartModel
       .findOneAndUpdate(
@@ -123,12 +134,14 @@ export class CartService {
 
   async addItem(cartKey: string, dto: AddCartItemDto) {
     const key = this.validateCartKey(cartKey);
-    await this.getProduct(dto.productId);
+    const product = await this.getProduct(dto.productId);
     const cart = await this.getOrCreateCart(key);
     const item = cart.items.find(
       (entry) => entry.productId.toString() === dto.productId,
     );
-    if (item) item.quantity += dto.quantity;
+    const nextQuantity = item ? item.quantity + dto.quantity : dto.quantity;
+    this.validateQuantity(product, nextQuantity);
+    if (item) item.quantity = nextQuantity;
     else
       cart.items.push({
         productId: new Types.ObjectId(dto.productId),
@@ -152,12 +165,13 @@ export class CartService {
 
   async updateItem(cartKey: string, productId: string, dto: UpdateCartItemDto) {
     const key = this.validateCartKey(cartKey);
-    await this.getProduct(productId);
+    const product = await this.getProduct(productId);
     const cart = await this.getOrCreateCart(key);
     const item = cart.items.find(
       (entry) => entry.productId.toString() === productId,
     );
     if (!item) throw new NotFoundException('Product is not in the cart');
+    this.validateQuantity(product, dto.quantity);
     item.quantity = dto.quantity;
     await cart.save();
     return {

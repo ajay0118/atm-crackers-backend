@@ -14,11 +14,13 @@ import {
 import { OrderListQueryDto } from './dto/order-list-query.dto';
 import { UpdateOrderStatusDto } from './dto/update-order-status.dto';
 import { UpdatePaymentStatusDto } from './dto/update-payment-status.dto';
+import { Product, ProductDocument } from '@libs/contracts/product/product.schema';
 
 @Injectable()
 export class AdminOrderService {
   constructor(
     @InjectModel(Order.name) private readonly orderModel: Model<OrderDocument>,
+    @InjectModel(Product.name) private readonly productModel: Model<ProductDocument>,
   ) {}
 
   private escape(value: string) {
@@ -92,6 +94,9 @@ export class AdminOrderService {
         `Invalid order status transition from ${order.orderStatus} to ${dto.status}`,
       );
     }
+    if (dto.status === OrderStatusType.CANCELLED) {
+      await this.restoreStock(order);
+    }
     order.orderStatus = dto.status;
     await order.save();
     return { message: 'Order status updated successfully', data: order };
@@ -127,8 +132,28 @@ export class AdminOrderService {
         `Order cannot be cancelled after ${order.orderStatus}`,
       );
     }
+    await this.restoreStock(order);
     order.orderStatus = OrderStatusType.CANCELLED;
     await order.save();
     return { message: 'Order cancelled successfully', data: order };
+  }
+
+  private async restoreStock(order: OrderDocument) {
+    if (!order.stockDeducted) return;
+    for (const item of order.items) {
+      const product = await this.productModel.findById(item.productId).exec();
+      if (!product || product.stockQuantity === undefined) continue;
+      product.stockQuantity += item.quantity;
+      const threshold = product.lowStockThreshold ?? 10;
+      product.stockStatus = (
+        product.stockQuantity === 0
+          ? 'out_of_stock'
+          : product.stockQuantity <= threshold
+            ? 'low_stock'
+            : 'in_stock'
+      ) as any;
+      await product.save();
+    }
+    order.stockDeducted = false;
   }
 }
