@@ -29,6 +29,11 @@ import {
   PaymentStatusType,
 } from '@libs/contracts/order/order.schema';
 import { CheckoutDto } from './dto/order.dto';
+import { Coupon, CouponDocument } from '@libs/contracts/coupon/coupon.schema';
+import {
+  CouponDiscountType,
+  CouponStatus,
+} from '@libs/contracts/enums/common.enum';
 
 @Injectable()
 export class OrderService {
@@ -39,6 +44,8 @@ export class OrderService {
     private readonly productModel: Model<ProductDocument>,
     @InjectModel(Customer.name)
     private readonly customerModel: Model<CustomerDocument>,
+    @InjectModel(Coupon.name)
+    private readonly couponModel: Model<CouponDocument>,
   ) {}
 
   private normalizeMobile(mobile: string) {
@@ -129,18 +136,101 @@ export class OrderService {
       0,
     );
     const itemTotal = items.reduce((sum, item) => sum + item.itemTotal, 0);
+    const coupon = await this.validateCoupon(
+      dto.couponCode,
+      itemTotal,
+      dto.customer.mobile,
+    );
+    const couponDiscount = coupon?.discount ?? 0;
     const deliveryCharge = this.deliveryCharge(dto.deliveryMethod);
     return {
       cart,
       items,
       subtotal,
-      totalDiscount: subtotal - itemTotal,
+      totalDiscount: subtotal - itemTotal + couponDiscount,
       deliveryCharge,
-      grandTotal: itemTotal + deliveryCharge,
+      grandTotal: itemTotal - couponDiscount + deliveryCharge,
+      couponCode: coupon?.code ?? null,
+      couponDiscount,
     };
   }
 
-  private async deductStock(items: Array<{ productId: Types.ObjectId; quantity: number }>) {
+  private async validateCoupon(
+    code: string | undefined,
+    orderValue: number,
+    mobile: string,
+  ) {
+    const normalized = code?.trim().toUpperCase();
+    if (!normalized) return null;
+    const coupon = await this.couponModel.findOne({ code: normalized }).exec();
+    if (!coupon || coupon.status !== CouponStatus.ACTIVE)
+      throw new BadRequestException('Invalid or inactive coupon code');
+    const now = new Date();
+    if (now < coupon.startAt || now > coupon.expiresAt)
+      throw new BadRequestException('This coupon is not currently valid');
+    if (
+      coupon.usageLimit !== null &&
+      coupon.usageLimit !== undefined &&
+      coupon.usedCount >= coupon.usageLimit
+    )
+      throw new BadRequestException('This coupon usage limit has been reached');
+    if (orderValue < coupon.minimumOrderValue)
+      throw new BadRequestException(
+        `Minimum order value for this coupon is ${coupon.minimumOrderValue}`,
+      );
+    if (coupon.perCustomerLimit > 0) {
+      const usedByCustomer = await this.orderModel.countDocuments({
+        couponCode: normalized,
+        customerMobile: this.normalizeMobile(mobile),
+        orderStatus: { $ne: OrderStatusType.CANCELLED },
+      });
+      if (usedByCustomer >= coupon.perCustomerLimit)
+        throw new BadRequestException(
+          'You have already used this coupon the maximum number of times',
+        );
+    }
+    let discount =
+      coupon.discountType === CouponDiscountType.PERCENTAGE
+        ? (orderValue * coupon.discountValue) / 100
+        : coupon.discountValue;
+    if (coupon.maximumDiscount !== null && coupon.maximumDiscount !== undefined)
+      discount = Math.min(discount, coupon.maximumDiscount);
+    return {
+      code: normalized,
+      discount: Math.min(Math.max(discount, 0), orderValue),
+    };
+  }
+
+  private async reserveCoupon(code: string | null) {
+    if (!code) return;
+    const result = await this.couponModel
+      .updateOne(
+        {
+          code,
+          status: CouponStatus.ACTIVE,
+          $or: [
+            { usageLimit: null },
+            { usageLimit: { $exists: false } },
+            { $expr: { $lt: ['$usedCount', '$usageLimit'] } },
+          ],
+        },
+        { $inc: { usedCount: 1 } },
+      )
+      .exec();
+    if (result.modifiedCount !== 1)
+      throw new BadRequestException('This coupon is no longer available');
+  }
+
+  private async releaseCoupon(code: string | null) {
+    if (code)
+      await this.couponModel
+        .updateOne({ code, usedCount: { $gt: 0 } }, { $inc: { usedCount: -1 } })
+        .exec();
+  }
+
+  private async deductStock(
+    items: Array<{ productId: Types.ObjectId; quantity: number }>,
+  ) {
     const deducted: Array<{ productId: Types.ObjectId; quantity: number }> = [];
     try {
       for (const item of items) {
@@ -152,7 +242,9 @@ export class OrderService {
           { $inc: { stockQuantity: -item.quantity } },
         );
         if (result.modifiedCount === 0) {
-          throw new BadRequestException('Insufficient stock for one or more products');
+          throw new BadRequestException(
+            'Insufficient stock for one or more products',
+          );
         }
         deducted.push(item);
         await this.refreshStockStatus(item.productId);
@@ -209,6 +301,8 @@ export class OrderService {
       paymentStatus: order.paymentStatus,
       orderStatus: order.orderStatus,
       promoCode: order.promoCode ?? null,
+      couponCode: order.couponCode ?? null,
+      couponDiscount: order.couponDiscount ?? 0,
       createdAt: order.createdAt,
       updatedAt: order.updatedAt,
     };
@@ -230,6 +324,8 @@ export class OrderService {
         totalDiscount: calculated.totalDiscount,
         deliveryCharge: calculated.deliveryCharge,
         grandTotal: calculated.grandTotal,
+        couponCode: calculated.couponCode,
+        couponDiscount: calculated.couponDiscount,
         deliveryMethod: dto.deliveryMethod ?? DeliveryMethodType.STANDARD,
         paymentStatus: PaymentStatusType.PENDING,
       },
@@ -263,9 +359,13 @@ export class OrderService {
       promoCode: dto.promoCode ?? null,
       stockDeducted: true,
     });
+    let couponReserved = false;
     try {
+      await this.reserveCoupon(calculated.couponCode);
+      couponReserved = Boolean(calculated.couponCode);
       await order.save();
     } catch (error) {
+      if (couponReserved) await this.releaseCoupon(calculated.couponCode);
       await this.restoreStock(order);
       throw error;
     }
@@ -324,6 +424,7 @@ export class OrderService {
       throw new BadRequestException('This order cannot be cancelled');
     order.orderStatus = OrderStatusType.CANCELLED;
     await this.restoreStock(order);
+    await this.releaseCoupon(order.couponCode ?? null);
     await order.save();
     return {
       message: 'Order cancelled successfully',

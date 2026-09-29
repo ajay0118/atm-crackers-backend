@@ -14,13 +14,20 @@ import {
 import { OrderListQueryDto } from './dto/order-list-query.dto';
 import { UpdateOrderStatusDto } from './dto/update-order-status.dto';
 import { UpdatePaymentStatusDto } from './dto/update-payment-status.dto';
-import { Product, ProductDocument } from '@libs/contracts/product/product.schema';
+import {
+  Product,
+  ProductDocument,
+} from '@libs/contracts/product/product.schema';
+import { Coupon, CouponDocument } from '@libs/contracts/coupon/coupon.schema';
 
 @Injectable()
 export class AdminOrderService {
   constructor(
     @InjectModel(Order.name) private readonly orderModel: Model<OrderDocument>,
-    @InjectModel(Product.name) private readonly productModel: Model<ProductDocument>,
+    @InjectModel(Product.name)
+    private readonly productModel: Model<ProductDocument>,
+    @InjectModel(Coupon.name)
+    private readonly couponModel: Model<CouponDocument>,
   ) {}
 
   private escape(value: string) {
@@ -96,6 +103,7 @@ export class AdminOrderService {
     }
     if (dto.status === OrderStatusType.CANCELLED) {
       await this.restoreStock(order);
+      await this.releaseCoupon(order.couponCode ?? null);
     }
     order.orderStatus = dto.status;
     await order.save();
@@ -133,6 +141,7 @@ export class AdminOrderService {
       );
     }
     await this.restoreStock(order);
+    await this.releaseCoupon(order.couponCode ?? null);
     order.orderStatus = OrderStatusType.CANCELLED;
     await order.save();
     return { message: 'Order cancelled successfully', data: order };
@@ -155,5 +164,12 @@ export class AdminOrderService {
       await product.save();
     }
     order.stockDeducted = false;
+  }
+
+  private async releaseCoupon(code: string | null) {
+    if (code)
+      await this.couponModel
+        .updateOne({ code, usedCount: { $gt: 0 } }, { $inc: { usedCount: -1 } })
+        .exec();
   }
 }

@@ -90,6 +90,9 @@ export class Order {
   })
   orderStatus: OrderStatusType;
   @Prop({ default: null, trim: true }) promoCode?: string;
+  @Prop({ default: null, trim: true, uppercase: true, index: true })
+  couponCode?: string;
+  @Prop({ default: 0, min: 0 }) couponDiscount: number;
   @Prop({ default: false }) stockDeducted: boolean;
 }
 export type OrderDocument = HydratedDocument<Order>;

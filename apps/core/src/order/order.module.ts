@@ -11,6 +11,7 @@ import {
 } from '@libs/contracts/customer/customer.schema';
 import { Product, ProductSchema } from '@libs/contracts/product/product.schema';
 import { Order, OrderSchema } from '@libs/contracts/order/order.schema';
+import { Coupon, CouponSchema } from '@libs/contracts/coupon/coupon.schema';
 import { OrderController } from './order.controller';
 import { OrderService } from './order.service';
 
@@ -22,6 +23,7 @@ import { OrderService } from './order.service';
       { name: Product.name, schema: ProductSchema },
       { name: Category.name, schema: CategorySchema },
       { name: Customer.name, schema: CustomerSchema },
+      { name: Coupon.name, schema: CouponSchema },
     ]),
   ],
   controllers: [OrderController],

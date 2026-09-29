@@ -8,3 +8,13 @@ export enum StockStatusType {
   LOW_STOCK = 'low_stock',
   OUT_OF_STOCK = 'out_of_stock',
 }
+
+export enum CouponDiscountType {
+  FIXED_AMOUNT = 'FIXED_AMOUNT',
+  PERCENTAGE = 'PERCENTAGE',
+}
+
+export enum CouponStatus {
+  ACTIVE = 'ACTIVE',
+  INACTIVE = 'INACTIVE',
+}

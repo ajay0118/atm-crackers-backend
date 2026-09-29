@@ -14,6 +14,7 @@ import { AdminCategoryModule } from './admin-category/admin-category.module';
 import { AdminProductModule } from './admin-product/admin-product.module';
 import { AdminOrderModule } from './admin-order/admin-order.module';
 import { AdminSettingsModule } from './admin-settings/admin-settings.module';
+import { AdminCouponModule } from './admin-coupon/admin-coupon.module';
 
 @Module({
   imports: [
@@ -50,6 +51,7 @@ import { AdminSettingsModule } from './admin-settings/admin-settings.module';
     AdminProductModule,
     AdminOrderModule,
     AdminSettingsModule,
+    AdminCouponModule,
   ],
   controllers: [AppController],
   providers: [AppService],

@@ -78,6 +78,13 @@ export class CheckoutDto {
   @IsEnum(PaymentMethodType)
   paymentMethod?: PaymentMethodType;
   @ApiPropertyOptional() @IsOptional() @IsString() promoCode?: string;
+  @ApiPropertyOptional({
+    description: 'Coupon code to apply at checkout',
+    example: 'DIWALI500',
+  })
+  @IsOptional()
+  @IsString()
+  couponCode?: string;
 }
 
 export class UpdateOrderStatusDto {
