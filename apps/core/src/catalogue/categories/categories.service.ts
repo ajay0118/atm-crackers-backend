@@ -15,6 +15,7 @@ import {
 } from '@libs/contracts/product/product.schema';
 import { buildIdentifierFilter } from '../catalogue.utils';
 import { CommonStatusType } from '@libs/contracts/enums/common.enum';
+import { OfferPricingService } from '../../offer/offer-pricing.service';
 
 @Injectable()
 export class CategoriesService {
@@ -23,6 +24,7 @@ export class CategoriesService {
     private readonly categoryModel: Model<CategoryDocument>,
     @InjectModel(Product.name)
     private readonly productModel: Model<ProductDocument>,
+    private readonly offerPricingService: OfferPricingService,
   ) {}
 
   async findActiveCategories(): Promise<any[]> {
@@ -82,7 +84,7 @@ export class CategoriesService {
   ): Promise<ProductDocument[]> {
     const category = await this.findActiveCategory(identifier);
 
-    return this.productModel
+    const products = await this.productModel
       .find({
         category: category._id,
         status: CommonStatusType.ACTIVE,
@@ -90,5 +92,13 @@ export class CategoriesService {
       .sort({ displayOrder: 1, name: 1 })
       .populate('category')
       .exec();
+    return Promise.all(
+      products.map(async (product) => {
+        const pricing = await this.offerPricingService.price(product);
+        product.discountPercent = pricing.discountPercent;
+        product.sellingPrice = pricing.sellingPrice;
+        return product;
+      }),
+    );
   }
 }

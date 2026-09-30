@@ -14,9 +14,11 @@ import { Order, OrderSchema } from '@libs/contracts/order/order.schema';
 import { Coupon, CouponSchema } from '@libs/contracts/coupon/coupon.schema';
 import { OrderController } from './order.controller';
 import { OrderService } from './order.service';
+import { OfferModule } from '../offer/offer.module';
 
 @Module({
   imports: [
+    OfferModule,
     MongooseModule.forFeature([
       { name: Order.name, schema: OrderSchema },
       { name: Cart.name, schema: CartSchema },

@@ -18,3 +18,9 @@ export enum CouponStatus {
   ACTIVE = 'ACTIVE',
   INACTIVE = 'INACTIVE',
 }
+
+export enum OfferScopeType {
+  GLOBAL = 'GLOBAL',
+  CATEGORY = 'CATEGORY',
+  PRODUCT = 'PRODUCT',
+}

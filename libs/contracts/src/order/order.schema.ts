@@ -38,6 +38,9 @@ export class OrderItem {
   @Prop({ required: true, min: 0 }) sellingPrice: number;
   @Prop({ required: true, min: 0 }) discountPercent: number;
   @Prop({ required: true, min: 0 }) itemTotal: number;
+  @Prop({ type: Types.ObjectId, ref: 'Offer', default: null })
+  offerId?: Types.ObjectId;
+  @Prop({ default: null }) offerName?: string;
 }
 export const OrderItemSchema = SchemaFactory.createForClass(OrderItem);
 
@@ -89,7 +92,6 @@ export class Order {
     index: true,
   })
   orderStatus: OrderStatusType;
-  @Prop({ default: null, trim: true }) promoCode?: string;
   @Prop({ default: null, trim: true, uppercase: true, index: true })
   couponCode?: string;
   @Prop({ default: 0, min: 0 }) couponDiscount: number;

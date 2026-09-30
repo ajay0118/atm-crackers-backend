@@ -29,6 +29,7 @@ import {
   PaymentStatusType,
 } from '@libs/contracts/order/order.schema';
 import { CheckoutDto } from './dto/order.dto';
+import { OfferPricingService } from '../offer/offer-pricing.service';
 import { Coupon, CouponDocument } from '@libs/contracts/coupon/coupon.schema';
 import {
   CouponDiscountType,
@@ -46,6 +47,7 @@ export class OrderService {
     private readonly customerModel: Model<CustomerDocument>,
     @InjectModel(Coupon.name)
     private readonly couponModel: Model<CouponDocument>,
+    private readonly offerPricingService: OfferPricingService,
   ) {}
 
   private normalizeMobile(mobile: string) {
@@ -114,10 +116,7 @@ export class OrderService {
         throw new BadRequestException(
           `Product ${product.name} category is inactive`,
         );
-      const sellingPrice = calculateSellingPrice(
-        product.mrp,
-        product.discountPercent,
-      );
+      const pricing = await this.offerPricingService.price(product);
       items.push({
         productId: product._id,
         categoryId: category._id,
@@ -126,9 +125,11 @@ export class OrderService {
         image: product.images[0] ?? '',
         quantity: cartItem.quantity,
         mrp: product.mrp,
-        sellingPrice,
-        discountPercent: product.discountPercent,
-        itemTotal: sellingPrice * cartItem.quantity,
+        sellingPrice: pricing.sellingPrice,
+        discountPercent: pricing.discountPercent,
+        itemTotal: pricing.sellingPrice * cartItem.quantity,
+        offerId: pricing.offer?.id ?? null,
+        offerName: pricing.offer?.name ?? null,
       });
     }
     const subtotal = items.reduce(
@@ -300,7 +301,6 @@ export class OrderService {
       paymentMethod: order.paymentMethod,
       paymentStatus: order.paymentStatus,
       orderStatus: order.orderStatus,
-      promoCode: order.promoCode ?? null,
       couponCode: order.couponCode ?? null,
       couponDiscount: order.couponDiscount ?? 0,
       createdAt: order.createdAt,
@@ -356,7 +356,8 @@ export class OrderService {
       paymentMethod: PaymentMethodType.MANUAL,
       paymentStatus: PaymentStatusType.PENDING,
       orderStatus: OrderStatusType.PENDING,
-      promoCode: dto.promoCode ?? null,
+      couponCode: calculated.couponCode,
+      couponDiscount: calculated.couponDiscount,
       stockDeducted: true,
     });
     let couponReserved = false;

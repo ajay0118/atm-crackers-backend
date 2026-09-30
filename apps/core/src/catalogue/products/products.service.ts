@@ -12,6 +12,7 @@ import {
 import { CategoriesService } from '../categories/categories.service';
 import { escapeRegExp } from '../catalogue.utils';
 import { CommonStatusType } from '@libs/contracts/enums/common.enum';
+import { OfferPricingService } from '../../offer/offer-pricing.service';
 
 @Injectable()
 export class ProductsService {
@@ -19,6 +20,7 @@ export class ProductsService {
     @InjectModel(Product.name)
     private readonly productModel: Model<ProductDocument>,
     private readonly categoriesService: CategoriesService,
+    private readonly offerPricingService: OfferPricingService,
   ) {}
 
   async findAll(
@@ -50,10 +52,19 @@ export class ProductsService {
       .populate('category')
       .exec();
 
-    return products.filter((product) => {
-      const category = product.category as { status?: string } | undefined;
-      return Boolean(category?.status !== CommonStatusType.INACTIVE);
-    });
+    return Promise.all(
+      products
+        .filter((product) => {
+          const category = product.category as { status?: string } | undefined;
+          return Boolean(category?.status !== CommonStatusType.INACTIVE);
+        })
+        .map(async (product) => {
+          const pricing = await this.offerPricingService.price(product);
+          product.discountPercent = pricing.discountPercent;
+          product.sellingPrice = pricing.sellingPrice;
+          return product;
+        }),
+    );
   }
 
   async findOne(identifier: string): Promise<ProductDocument> {
@@ -83,6 +94,9 @@ export class ProductsService {
       throw new NotFoundException('Product not found');
     }
 
+    const pricing = await this.offerPricingService.price(product);
+    product.discountPercent = pricing.discountPercent;
+    product.sellingPrice = pricing.sellingPrice;
     return product;
   }
 }

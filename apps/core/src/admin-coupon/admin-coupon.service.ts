@@ -28,6 +28,7 @@ export class AdminCouponService {
       throw new BadRequestException('Expiry must be after start date');
     if (
       dto.maximumDiscount !== undefined &&
+      dto.maximumDiscount !== null &&
       dto.discountType === CouponDiscountType.FIXED_AMOUNT
     )
       throw new BadRequestException(

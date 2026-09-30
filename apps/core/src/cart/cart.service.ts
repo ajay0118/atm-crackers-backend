@@ -15,7 +15,7 @@ import {
   CommonStatusType,
   StockStatusType,
 } from '@libs/contracts/enums/common.enum';
-import { calculateSellingPrice } from '../catalogue/catalogue.utils';
+import { OfferPricingService } from '../offer/offer-pricing.service';
 import { AddCartItemDto } from './dto/add-cart-item.dto';
 import { UpdateCartItemDto } from './dto/update-cart-item.dto';
 
@@ -25,6 +25,7 @@ export class CartService {
     @InjectModel(Cart.name) private readonly cartModel: Model<CartDocument>,
     @InjectModel(Product.name)
     private readonly productModel: Model<ProductDocument>,
+    private readonly offerPricingService: OfferPricingService,
   ) {}
 
   private validateCartKey(cartKey: string): string {
@@ -90,10 +91,7 @@ export class CartService {
       try {
         const product = await this.getProduct(item.productId.toString());
         const category = product.category as Category & { _id: Types.ObjectId };
-        const sellingPrice = calculateSellingPrice(
-          product.mrp,
-          product.discountPercent,
-        );
+        const pricing = await this.offerPricingService.price(product);
         items.push({
           productId: product._id.toString(),
           categoryId: category._id.toString(),
@@ -106,9 +104,9 @@ export class CartService {
           images: product.images,
           quantity: item.quantity,
           mrp: product.mrp,
-          discountPercent: product.discountPercent,
-          sellingPrice,
-          itemTotal: sellingPrice * item.quantity,
+          discountPercent: pricing.discountPercent,
+          sellingPrice: pricing.sellingPrice,
+          itemTotal: pricing.sellingPrice * item.quantity,
           stockStatus: product.stockStatus,
         });
       } catch (error) {
