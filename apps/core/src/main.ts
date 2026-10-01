@@ -7,27 +7,28 @@ import cookieParser from 'cookie-parser';
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   app.use(cookieParser());
-  const allowedOrigins = new Set([
-    'https://atm-crackers-site.on-forge.com',
-    'https://atm-crackers-admin.on-forge.com',
-    'http://localhost:3018',
-    'http://localhost:3019',
-  ]);
+  app.enableCors({ origin: true, credentials: false });
+  // const allowedOrigins = new Set([
+  //   'https://atm-crackers-site.on-forge.com',
+  //   'https://atm-crackers-admin.on-forge.com',
+  //   'http://localhost:3018',
+  //   'http://localhost:3019',
+  // ]);
 
-  app.enableCors({
-    origin: (origin, callback) => {
-      // Allow non-browser requests such as Swagger/curl, which have no Origin header.
-      if (!origin || allowedOrigins.has(origin)) {
-        callback(null, true);
-        return;
-      }
+  // app.enableCors({
+  //   origin: (origin, callback) => {
+  //     // Allow non-browser requests such as Swagger/curl, which have no Origin header.
+  //     if (!origin || allowedOrigins.has(origin)) {
+  //       callback(null, true);
+  //       return;
+  //     }
 
-      callback(new Error('Origin not allowed by CORS'));
-    },
-    methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
-    allowedHeaders: ['Content-Type', 'Authorization'],
-    credentials: false,
-  });
+  //     callback(new Error('Origin not allowed by CORS'));
+  //   },
+  //   methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
+  //   allowedHeaders: ['Content-Type', 'Authorization'],
+  //   credentials: false,
+  // });
   app.useGlobalPipes(new ValidationPipe({ whitelist: true, transform: true }));
 
   const config = new DocumentBuilder()
