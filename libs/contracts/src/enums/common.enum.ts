@@ -24,3 +24,21 @@ export enum OfferScopeType {
   CATEGORY = 'CATEGORY',
   PRODUCT = 'PRODUCT',
 }
+
+export enum PosBillStatusType {
+  COMPLETED = 'COMPLETED',
+  CANCELLED = 'CANCELLED',
+}
+
+export enum PosPaymentMethodType {
+  CASH = 'CASH',
+  UPI = 'UPI',
+  CARD = 'CARD',
+  BANK_TRANSFER = 'BANK_TRANSFER',
+  CREDIT = 'CREDIT',
+}
+
+export enum PosPaymentStatusType {
+  PENDING = 'PENDING',
+  PAID = 'PAID',
+}
