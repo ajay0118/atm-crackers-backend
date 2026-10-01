@@ -7,6 +7,7 @@ import {
   PosBillSchema,
 } from '@libs/contracts/pos-bill/pos-bill.schema';
 import { OfferModule } from '../offer/offer.module';
+import { FileModule } from '../common/file/file.module';
 import { AdminPosController } from './admin-pos.controller';
 import { AdminPosService } from './admin-pos.service';
 
@@ -18,6 +19,7 @@ import { AdminPosService } from './admin-pos.service';
       { name: Coupon.name, schema: CouponSchema },
     ]),
     OfferModule,
+    FileModule,
   ],
   controllers: [AdminPosController],
   providers: [AdminPosService],

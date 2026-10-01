@@ -15,10 +15,12 @@ import { Coupon, CouponSchema } from '@libs/contracts/coupon/coupon.schema';
 import { OrderController } from './order.controller';
 import { OrderService } from './order.service';
 import { OfferModule } from '../offer/offer.module';
+import { FileModule } from '../common/file/file.module';
 
 @Module({
   imports: [
     OfferModule,
+    FileModule,
     MongooseModule.forFeature([
       { name: Order.name, schema: OrderSchema },
       { name: Cart.name, schema: CartSchema },

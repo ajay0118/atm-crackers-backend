@@ -2,11 +2,31 @@ import { Controller, Get, Param } from '@nestjs/common';
 import { ApiOperation, ApiParam, ApiResponse, ApiTags } from '@nestjs/swagger';
 import { CategoriesService } from './categories.service';
 import { mapCategory, mapProduct } from '../catalogue.mapper';
+import { FileHelperService } from '../../common/file/file-helper.service';
 
 @ApiTags('categories')
 @Controller('categories')
 export class CategoriesController {
-  constructor(private readonly categoriesService: CategoriesService) {}
+  constructor(
+    private readonly categoriesService: CategoriesService,
+    private readonly fileHelper: FileHelperService,
+  ) {}
+
+  private async categoryResponse(category: any) {
+    const value = category.toObject ? category.toObject() : category;
+    return mapCategory({
+      ...value,
+      imageUrl: await this.fileHelper.url(value.imageUrl),
+    });
+  }
+
+  private async productResponse(product: any) {
+    const value = product.toObject ? product.toObject() : product;
+    return mapProduct({
+      ...value,
+      images: await this.fileHelper.urls(value.images),
+    });
+  }
 
   @Get()
   @ApiOperation({ summary: 'List active categories' })
@@ -20,8 +40,8 @@ export class CategoriesController {
     return {
       message: 'Categories fetched successfully',
       count: categories.length,
-      data: categories.map((category) =>
-        mapCategory(category as Parameters<typeof mapCategory>[0]),
+      data: await Promise.all(
+        categories.map((category) => this.categoryResponse(category)),
       ),
     };
   }
@@ -40,8 +60,8 @@ export class CategoriesController {
     return {
       message: 'Category products fetched successfully',
       count: products.length,
-      data: products.map((product) =>
-        mapProduct(product.toObject() as Parameters<typeof mapProduct>[0]),
+      data: await Promise.all(
+        products.map((product) => this.productResponse(product)),
       ),
     };
   }
@@ -59,7 +79,7 @@ export class CategoriesController {
 
     return {
       message: 'Category fetched successfully',
-      data: mapCategory(category.toObject()),
+      data: await this.categoryResponse(category),
     };
   }
 }

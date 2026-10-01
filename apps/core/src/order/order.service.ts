@@ -30,6 +30,7 @@ import {
 } from '@libs/contracts/order/order.schema';
 import { CheckoutDto } from './dto/order.dto';
 import { OfferPricingService } from '../offer/offer-pricing.service';
+import { FileHelperService } from '../common/file/file-helper.service';
 import { Coupon, CouponDocument } from '@libs/contracts/coupon/coupon.schema';
 import {
   CouponDiscountType,
@@ -48,6 +49,7 @@ export class OrderService {
     @InjectModel(Coupon.name)
     private readonly couponModel: Model<CouponDocument>,
     private readonly offerPricingService: OfferPricingService,
+    private readonly fileHelper: FileHelperService,
   ) {}
 
   private normalizeMobile(mobile: string) {
@@ -122,7 +124,7 @@ export class OrderService {
         categoryId: category._id,
         productName: product.name,
         categoryName: category.name,
-        image: product.images[0] ?? '',
+        image: await this.fileHelper.url(product.images[0]),
         quantity: cartItem.quantity,
         mrp: product.mrp,
         sellingPrice: pricing.sellingPrice,

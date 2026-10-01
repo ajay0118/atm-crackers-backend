@@ -7,11 +7,16 @@ import {
   Patch,
   Post,
   UseGuards,
+  UploadedFile,
+  UseInterceptors,
 } from '@nestjs/common';
+import { FileInterceptor } from '@nestjs/platform-express';
 import {
   ApiBearerAuth,
+  ApiBody,
   ApiBadRequestResponse,
   ApiConflictResponse,
+  ApiConsumes,
   ApiCreatedResponse,
   ApiNoContentResponse,
   ApiOperation,
@@ -28,6 +33,7 @@ import { AdminRolesGuard } from '../admin/guards/roles.guard';
 import { AdminCategoryService } from './admin-category.service';
 import { CreateCategoryDto } from './dto/create-category.dto';
 import { UpdateCategoryDto } from './dto/update-category.dto';
+import type { UploadedImageFile } from '../common/file/file-helper.service';
 
 @ApiTags('admin-categories')
 @ApiBearerAuth()
@@ -102,5 +108,28 @@ export class AdminCategoryController {
   })
   remove(@Param('id') id: string) {
     return this.categoryService.remove(id);
+  }
+
+  @Post(':id/image')
+  @ApiOperation({ summary: 'Upload category image' })
+  @ApiConsumes('multipart/form-data')
+  @ApiBody({
+    schema: {
+      type: 'object',
+      properties: { file: { type: 'string', format: 'binary' } },
+    },
+  })
+  @UseInterceptors(FileInterceptor('file'))
+  uploadImage(
+    @Param('id') id: string,
+    @UploadedFile() file: UploadedImageFile,
+  ) {
+    return this.categoryService.uploadImage(id, file);
+  }
+
+  @Delete(':id/image')
+  @ApiOperation({ summary: 'Delete category image' })
+  deleteImage(@Param('id') id: string) {
+    return this.categoryService.deleteImage(id);
   }
 }

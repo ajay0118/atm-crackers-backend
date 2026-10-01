@@ -9,11 +9,23 @@ import {
 import { ProductListQueryDto } from '../dto/product-list-query.dto';
 import { ProductsService } from './products.service';
 import { mapProduct } from '../catalogue.mapper';
+import { FileHelperService } from '../../common/file/file-helper.service';
 
 @ApiTags('products')
 @Controller('products')
 export class ProductsController {
-  constructor(private readonly productsService: ProductsService) {}
+  constructor(
+    private readonly productsService: ProductsService,
+    private readonly fileHelper: FileHelperService,
+  ) {}
+
+  private async productResponse(product: any) {
+    const value = product.toObject ? product.toObject() : product;
+    return mapProduct({
+      ...value,
+      images: await this.fileHelper.urls(value.images),
+    });
+  }
 
   @Get()
   @ApiOperation({ summary: 'List active products' })
@@ -40,8 +52,8 @@ export class ProductsController {
     return {
       message: 'Products fetched successfully',
       count: products.length,
-      data: products.map((product) =>
-        mapProduct(product.toObject() as Parameters<typeof mapProduct>[0]),
+      data: await Promise.all(
+        products.map((product) => this.productResponse(product)),
       ),
     };
   }
@@ -58,7 +70,7 @@ export class ProductsController {
 
     return {
       message: 'Product fetched successfully',
-      data: mapProduct(product.toObject()),
+      data: await this.productResponse(product),
     };
   }
 }

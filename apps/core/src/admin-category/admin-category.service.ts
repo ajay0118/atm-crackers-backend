@@ -17,6 +17,8 @@ import {
 import { CommonStatusType } from '@libs/contracts/enums/common.enum';
 import { CreateCategoryDto } from './dto/create-category.dto';
 import { UpdateCategoryDto } from './dto/update-category.dto';
+import { UploadedImageFile } from '../common/file/file-helper.service';
+import { FileHelperService } from '../common/file/file-helper.service';
 
 @Injectable()
 export class AdminCategoryService {
@@ -25,6 +27,7 @@ export class AdminCategoryService {
     private readonly categoryModel: Model<CategoryDocument>,
     @InjectModel(Product.name)
     private readonly productModel: Model<ProductDocument>,
+    private readonly fileHelper: FileHelperService,
   ) {}
 
   private slugify(value: string) {
@@ -77,7 +80,11 @@ export class AdminCategoryService {
     const productCount = await this.productModel
       .countDocuments({ category: category._id })
       .exec();
-    return { ...category.toObject(), productCount };
+    return {
+      ...category.toObject(),
+      imageUrl: await this.fileHelper.url(category.imageUrl),
+      productCount,
+    };
   }
 
   async create(dto: CreateCategoryDto) {
@@ -156,5 +163,30 @@ export class AdminCategoryService {
     }
     await category.deleteOne();
     return { message: 'Category deleted successfully' };
+  }
+
+  async uploadImage(id: string, file: UploadedImageFile) {
+    const category = await this.findById(id);
+    const oldKey = category.imageUrl;
+    const key = await this.fileHelper.upload(file, 'categories');
+    category.imageUrl = key;
+    await category.save();
+    await this.fileHelper.delete(oldKey);
+    return {
+      message: 'Category image uploaded successfully',
+      data: { imageUrl: await this.fileHelper.url(key) },
+    };
+  }
+
+  async deleteImage(id: string) {
+    const category = await this.findById(id);
+    const oldKey = category.imageUrl;
+    category.imageUrl = '';
+    await category.save();
+    await this.fileHelper.delete(oldKey);
+    return {
+      message: 'Category image deleted successfully',
+      data: { imageUrl: '' },
+    };
   }
 }

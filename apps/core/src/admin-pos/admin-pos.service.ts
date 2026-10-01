@@ -27,6 +27,7 @@ import {
   StockStatusType,
 } from '@libs/contracts/enums/common.enum';
 import { OfferPricingService } from '../offer/offer-pricing.service';
+import { FileHelperService } from '../common/file/file-helper.service';
 import { PosBillDto, PosListQueryDto } from './dto/pos.dto';
 
 @Injectable()
@@ -39,6 +40,7 @@ export class AdminPosService {
     @InjectModel(Coupon.name)
     private readonly couponModel: Model<CouponDocument>,
     private readonly offerPricing: OfferPricingService,
+    private readonly fileHelper: FileHelperService,
   ) {}
 
   private async calculate(dto: PosBillDto) {
@@ -68,7 +70,7 @@ export class AdminPosService {
         categoryId: category._id,
         productName: product.name,
         categoryName: category.name,
-        image: product.images[0] ?? '',
+        image: await this.fileHelper.url(product.images[0]),
         quantity: input.quantity,
         mrp: product.mrp,
         sellingPrice: pricing.sellingPrice,
@@ -141,7 +143,7 @@ export class AdminPosService {
             name: product.name,
             slug: product.slug,
             category: product.category,
-            images: product.images,
+            images: await this.fileHelper.urls(product.images),
             mrp: product.mrp,
             discountPercent: pricing.discountPercent,
             sellingPrice: pricing.sellingPrice,

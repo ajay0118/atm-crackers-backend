@@ -22,6 +22,8 @@ import {
 import { CreateProductDto } from './dto/create-product.dto';
 import { ProductListQueryDto } from './dto/product-list-query.dto';
 import { UpdateProductDto } from './dto/update-product.dto';
+import { UploadedImageFile } from '../common/file/file-helper.service';
+import { FileHelperService } from '../common/file/file-helper.service';
 
 @Injectable()
 export class AdminProductService {
@@ -31,6 +33,7 @@ export class AdminProductService {
     @InjectModel(Category.name)
     private readonly categoryModel: Model<CategoryDocument>,
     @InjectModel(Order.name) private readonly orderModel: Model<OrderDocument>,
+    private readonly fileHelper: FileHelperService,
   ) {}
 
   private slugify(value: string) {
@@ -45,10 +48,16 @@ export class AdminProductService {
     return Math.round((mrp - (mrp * discountPercent) / 100) * 100) / 100;
   }
 
-  private calculateStockStatus(quantity?: number, threshold = 10, fallback?: StockStatusType) {
+  private calculateStockStatus(
+    quantity?: number,
+    threshold = 10,
+    fallback?: StockStatusType,
+  ) {
     if (quantity === undefined) return fallback ?? StockStatusType.IN_STOCK;
     if (quantity === 0) return StockStatusType.OUT_OF_STOCK;
-    return quantity <= threshold ? StockStatusType.LOW_STOCK : StockStatusType.IN_STOCK;
+    return quantity <= threshold
+      ? StockStatusType.LOW_STOCK
+      : StockStatusType.IN_STOCK;
   }
 
   private async findCategory(categoryId: string, requireActive = true) {
@@ -91,7 +100,7 @@ export class AdminProductService {
       );
   }
 
-  private result(product: ProductDocument) {
+  private async result(product: ProductDocument) {
     const value = product.toObject() as unknown as Record<string, unknown>;
     const populatedCategory =
       typeof value.category === 'object' && value.category !== null
@@ -108,11 +117,18 @@ export class AdminProductService {
     if (typeof value.stockQuantity === 'number') {
       value.stockStatus = this.calculateStockStatus(
         value.stockQuantity,
-        typeof value.lowStockThreshold === 'number' ? value.lowStockThreshold : 10,
+        typeof value.lowStockThreshold === 'number'
+          ? value.lowStockThreshold
+          : 10,
         value.stockStatus as StockStatusType,
       );
     }
-    return { ...value, category, id: product._id.toString() };
+    return {
+      ...value,
+      images: await this.fileHelper.urls(product.images),
+      category,
+      id: product._id.toString(),
+    };
   }
 
   async create(dto: CreateProductDto) {
@@ -143,7 +159,7 @@ export class AdminProductService {
     await product.populate('category');
     return {
       message: 'Product created successfully',
-      data: this.result(product),
+      data: await this.result(product),
     };
   }
 
@@ -174,14 +190,14 @@ export class AdminProductService {
     return {
       message: 'Admin products fetched successfully',
       count: products.length,
-      data: products.map((product) => this.result(product)),
+      data: await Promise.all(products.map((product) => this.result(product))),
     };
   }
 
   async findOne(id: string) {
     return {
       message: 'Product fetched successfully',
-      data: this.result(await this.findProduct(id)),
+      data: await this.result(await this.findProduct(id)),
     };
   }
 
@@ -226,7 +242,7 @@ export class AdminProductService {
     await product.populate('category');
     return {
       message: 'Product updated successfully',
-      data: this.result(product),
+      data: await this.result(product),
     };
   }
 
@@ -241,5 +257,32 @@ export class AdminProductService {
       );
     await product.deleteOne();
     return { message: 'Product deleted successfully' };
+  }
+
+  async uploadImages(id: string, files: UploadedImageFile[]) {
+    const product = await this.findProduct(id);
+    const existing = product.images || [];
+    if (existing.length + files.length > 3)
+      throw new BadRequestException('A product can have a maximum of 3 images');
+    const keys = await this.fileHelper.uploadMany(files, 'products');
+    product.images = [...existing, ...keys];
+    await product.save();
+    return {
+      message: 'Product images uploaded successfully',
+      data: { images: await this.fileHelper.urls(product.images) },
+    };
+  }
+
+  async deleteImage(id: string, imageKey: string) {
+    const product = await this.findProduct(id);
+    if (!product.images?.includes(imageKey))
+      throw new NotFoundException('Product image not found');
+    product.images = product.images.filter((image) => image !== imageKey);
+    await product.save();
+    await this.fileHelper.delete(imageKey);
+    return {
+      message: 'Product image deleted successfully',
+      data: { images: await this.fileHelper.urls(product.images) },
+    };
   }
 }

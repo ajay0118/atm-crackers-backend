@@ -8,9 +8,11 @@ import { Order, OrderSchema } from '@libs/contracts/order/order.schema';
 import { Product, ProductSchema } from '@libs/contracts/product/product.schema';
 import { AdminProductController } from './admin-product.controller';
 import { AdminProductService } from './admin-product.service';
+import { FileModule } from '../common/file/file.module';
 
 @Module({
   imports: [
+    FileModule,
     MongooseModule.forFeature([
       { name: Product.name, schema: ProductSchema },
       { name: Category.name, schema: CategorySchema },

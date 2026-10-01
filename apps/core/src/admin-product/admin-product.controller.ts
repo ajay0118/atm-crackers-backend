@@ -8,11 +8,17 @@ import {
   Post,
   Query,
   UseGuards,
+  UploadedFiles,
+  Req,
+  UseInterceptors,
 } from '@nestjs/common';
+import { FilesInterceptor } from '@nestjs/platform-express';
 import {
   ApiBadRequestResponse,
+  ApiBody,
   ApiBearerAuth,
   ApiConflictResponse,
+  ApiConsumes,
   ApiCreatedResponse,
   ApiNotFoundResponse,
   ApiOkResponse,
@@ -30,6 +36,7 @@ import { AdminProductService } from './admin-product.service';
 import { CreateProductDto } from './dto/create-product.dto';
 import { ProductListQueryDto } from './dto/product-list-query.dto';
 import { UpdateProductDto } from './dto/update-product.dto';
+import { UploadedImageFile } from '../common/file/file-helper.service';
 
 @ApiTags('admin-products')
 @ApiBearerAuth()
@@ -128,5 +135,42 @@ export class AdminProductController {
   })
   remove(@Param('id') id: string) {
     return this.productService.remove(id);
+  }
+
+  @Post(':id/images')
+  @ApiOperation({ summary: 'Upload product images' })
+  @ApiConsumes('multipart/form-data')
+  @ApiBody({
+    schema: {
+      type: 'object',
+      properties: {
+        files: { type: 'array', items: { type: 'string', format: 'binary' } },
+      },
+    },
+  })
+  @UseInterceptors(FilesInterceptor('files', 3))
+  uploadImages(
+    @Param('id') id: string,
+    @UploadedFiles() files: UploadedImageFile[],
+  ) {
+    return this.productService.uploadImages(id, files);
+  }
+
+  @Delete(':id/images')
+  @ApiOperation({ summary: 'Delete one product image' })
+  @ApiBody({
+    schema: {
+      type: 'object',
+      required: ['imageKey'],
+      properties: {
+        imageKey: {
+          type: 'string',
+          example: 'products/1790841838915-image.png',
+        },
+      },
+    },
+  })
+  deleteImage(@Param('id') id: string, @Body('imageKey') imageKey: string) {
+    return this.productService.deleteImage(id, imageKey);
   }
 }

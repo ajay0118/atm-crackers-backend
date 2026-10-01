@@ -7,9 +7,11 @@ import {
 import { Product, ProductSchema } from '@libs/contracts/product/product.schema';
 import { AdminCategoryController } from './admin-category.controller';
 import { AdminCategoryService } from './admin-category.service';
+import { FileModule } from '../common/file/file.module';
 
 @Module({
   imports: [
+    FileModule,
     MongooseModule.forFeature([
       { name: Category.name, schema: CategorySchema },
       { name: Product.name, schema: ProductSchema },

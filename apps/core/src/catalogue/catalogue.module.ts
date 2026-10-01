@@ -11,10 +11,12 @@ import {
 } from '@libs/contracts/category/category.schema';
 import { Product, ProductSchema } from '@libs/contracts/product/product.schema';
 import { OfferModule } from '../offer/offer.module';
+import { FileModule } from '../common/file/file.module';
 
 @Module({
   imports: [
     OfferModule,
+    FileModule,
     MongooseModule.forFeature([
       { name: Category.name, schema: CategorySchema },
       { name: Product.name, schema: ProductSchema },

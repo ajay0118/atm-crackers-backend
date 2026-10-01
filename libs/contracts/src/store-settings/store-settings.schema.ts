@@ -8,6 +8,8 @@ export class StoreSettings {
 
   @Prop({ required: true, trim: true })
   storeName: string;
+  @Prop({ default: '', trim: true })
+  logoUrl: string;
 
   @Prop({ default: '', trim: true })
   tagline: string;

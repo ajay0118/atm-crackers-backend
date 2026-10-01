@@ -18,6 +18,7 @@ import {
 import { OfferPricingService } from '../offer/offer-pricing.service';
 import { AddCartItemDto } from './dto/add-cart-item.dto';
 import { UpdateCartItemDto } from './dto/update-cart-item.dto';
+import { FileHelperService } from '../common/file/file-helper.service';
 
 @Injectable()
 export class CartService {
@@ -26,6 +27,7 @@ export class CartService {
     @InjectModel(Product.name)
     private readonly productModel: Model<ProductDocument>,
     private readonly offerPricingService: OfferPricingService,
+    private readonly fileHelper: FileHelperService,
   ) {}
 
   private validateCartKey(cartKey: string): string {
@@ -101,7 +103,7 @@ export class CartService {
             slug: category.slug,
           },
           name: product.name,
-          images: product.images,
+          images: await this.fileHelper.urls(product.images),
           quantity: item.quantity,
           mrp: product.mrp,
           discountPercent: pricing.discountPercent,

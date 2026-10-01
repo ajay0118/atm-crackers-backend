@@ -9,10 +9,12 @@ import { Product, ProductSchema } from '@libs/contracts/product/product.schema';
 import { CartController } from './cart.controller';
 import { CartService } from './cart.service';
 import { OfferModule } from '../offer/offer.module';
+import { FileModule } from '../common/file/file.module';
 
 @Module({
   imports: [
     OfferModule,
+    FileModule,
     MongooseModule.forFeature([
       { name: Cart.name, schema: CartSchema },
       { name: Category.name, schema: CategorySchema },
