@@ -3,6 +3,7 @@ import { HydratedDocument, Types } from 'mongoose';
 import { Category } from '@libs/contracts/category/category.schema';
 import {
   CommonStatusType,
+  ProductUnitType,
   StockStatusType,
 } from '@libs/contracts/enums/common.enum';
 
@@ -18,6 +19,14 @@ export class Product {
 
   @Prop({ required: true, trim: true })
   name: string;
+
+  @Prop({
+    type: String,
+    enum: ProductUnitType,
+    required: true,
+    default: ProductUnitType.PCT,
+  })
+  unit: ProductUnitType;
 
   @Prop({
     required: true,

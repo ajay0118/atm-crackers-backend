@@ -1,6 +1,13 @@
 import { ApiPropertyOptional } from '@nestjs/swagger';
 import { Transform } from 'class-transformer';
-import { IsOptional, IsString, Length, Matches } from 'class-validator';
+import {
+  ArrayMaxSize,
+  IsArray,
+  IsOptional,
+  IsString,
+  Length,
+  Matches,
+} from 'class-validator';
 
 const trim = ({ value }: { value: unknown }) =>
   typeof value === 'string' ? value.trim() : value;
@@ -31,12 +38,21 @@ export class UpdateStoreSettingsDto {
   )
   gstin?: string;
 
-  @ApiPropertyOptional({ example: '+91 94431 88990' })
+  @ApiPropertyOptional({
+    example: ['+91 94431 88990', '+91 98765 43210'],
+    type: [String],
+  })
   @IsOptional()
-  @IsString()
-  @Length(7, 25)
-  @Transform(trim)
-  supportPhone?: string;
+  @IsArray()
+  @ArrayMaxSize(5)
+  @IsString({ each: true })
+  @Length(7, 25, { each: true })
+  @Transform(({ value }) =>
+    Array.isArray(value)
+      ? value.map((phone) => (typeof phone === 'string' ? phone.trim() : phone))
+      : value,
+  )
+  supportPhones?: string[];
 
   @ApiPropertyOptional({ example: '128, By-Pass Road, Sivakasi' })
   @IsOptional()

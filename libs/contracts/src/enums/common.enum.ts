@@ -9,6 +9,12 @@ export enum StockStatusType {
   OUT_OF_STOCK = 'out_of_stock',
 }
 
+export enum ProductUnitType {
+  PCT = 'PCT',
+  BOX = 'BOX',
+  PIECE = 'PIECE',
+}
+
 export enum CouponDiscountType {
   FIXED_AMOUNT = 'FIXED_AMOUNT',
   PERCENTAGE = 'PERCENTAGE',

@@ -17,8 +17,8 @@ export class StoreSettings {
   @Prop({ default: '', uppercase: true, trim: true })
   gstin: string;
 
-  @Prop({ default: '', trim: true })
-  supportPhone: string;
+  @Prop({ type: [String], default: [] })
+  supportPhones: string[];
 
   @Prop({ default: '', trim: true })
   address: string;

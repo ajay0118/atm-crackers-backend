@@ -1,5 +1,6 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { HydratedDocument, Types } from 'mongoose';
+import { ProductUnitType } from '@libs/contracts/enums/common.enum';
 
 export enum OrderStatusType {
   PENDING = 'PENDING',
@@ -31,6 +32,8 @@ export class OrderItem {
   @Prop({ type: Types.ObjectId, required: true, ref: 'Category' })
   categoryId: Types.ObjectId;
   @Prop({ required: true }) productName: string;
+  @Prop({ type: String, enum: ProductUnitType, required: true })
+  unit: ProductUnitType;
   @Prop({ required: true }) categoryName: string;
   @Prop({ default: '' }) image: string;
   @Prop({ required: true, min: 1 }) quantity: number;

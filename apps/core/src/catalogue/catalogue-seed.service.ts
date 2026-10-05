@@ -13,6 +13,7 @@ import {
 } from '@libs/contracts/product/product.schema';
 import {
   CommonStatusType,
+  ProductUnitType,
   StockStatusType,
 } from '@libs/contracts/enums/common.enum';
 import { calculateSellingPrice, slugify } from './catalogue.utils';
@@ -77,6 +78,7 @@ export class CatalogueSeedService implements OnApplicationBootstrap {
       const products = categorySeed.products.map((productSeed, index) => ({
         category: category._id,
         name: productSeed.name,
+        unit: this.normalizeUnit(productSeed.unit),
         slug: slugify(productSeed.name),
         description: '',
         images: [productImageUrl],
@@ -92,6 +94,19 @@ export class CatalogueSeedService implements OnApplicationBootstrap {
         await this.productModel.insertMany(products);
       }
     }
+  }
+
+  private normalizeUnit(value?: string): ProductUnitType {
+    const unit = value?.trim().toLowerCase();
+    if (unit === 'box' || unit === '1 box') return ProductUnitType.BOX;
+    if (
+      unit === 'piece' ||
+      unit === '1 piece' ||
+      unit === 'pcs' ||
+      unit === '1 pcs'
+    )
+      return ProductUnitType.PIECE;
+    return ProductUnitType.PCT;
   }
 
   private loadSeedFile(): CatalogueSeedFile {

@@ -1,6 +1,8 @@
+import { ProductUnitType } from '@libs/contracts/enums/common.enum';
+
 export interface CatalogueSeedProduct {
   name: string;
-  unit: string;
+  unit?: string | ProductUnitType;
   mrp: number;
   displayOrder?: number;
 }

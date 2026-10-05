@@ -12,6 +12,7 @@ import {
 } from '@libs/contracts/category/category.schema';
 import {
   CommonStatusType,
+  ProductUnitType,
   StockStatusType,
 } from '@libs/contracts/enums/common.enum';
 import { Order, OrderDocument } from '@libs/contracts/order/order.schema';
@@ -140,6 +141,7 @@ export class AdminProductService {
     const product = await this.productModel.create({
       category: dto.categoryId,
       name: dto.name.trim(),
+      unit: dto.unit ?? ProductUnitType.PCT,
       slug,
       description: dto.description?.trim() || '',
       images: dto.images || [],
@@ -219,6 +221,7 @@ export class AdminProductService {
     Object.assign(product, {
       category: categoryId,
       name: nextName,
+      ...(dto.unit !== undefined && { unit: dto.unit }),
       slug: nextSlug,
       mrp,
       discountPercent,

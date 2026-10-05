@@ -19,6 +19,7 @@ import {
 } from 'class-validator';
 import {
   CommonStatusType,
+  ProductUnitType,
   StockStatusType,
 } from '@libs/contracts/enums/common.enum';
 
@@ -35,6 +36,15 @@ export class CreateProductDto {
   @Length(2, 150)
   @Transform(({ value }) => (typeof value === 'string' ? value.trim() : value))
   name: string;
+
+  @ApiPropertyOptional({
+    enum: ProductUnitType,
+    example: ProductUnitType.PCT,
+    default: ProductUnitType.PCT,
+  })
+  @IsOptional()
+  @IsEnum(ProductUnitType)
+  unit?: ProductUnitType;
 
   @ApiPropertyOptional({ example: 'three-sound' })
   @IsOptional()

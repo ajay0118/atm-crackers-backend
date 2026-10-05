@@ -9,6 +9,7 @@ import { Cart, CartDocument } from '@libs/contracts/cart/cart.schema';
 import { Category } from '@libs/contracts/category/category.schema';
 import {
   CommonStatusType,
+  ProductUnitType,
   StockStatusType,
 } from '@libs/contracts/enums/common.enum';
 import {
@@ -123,6 +124,7 @@ export class OrderService {
         productId: product._id,
         categoryId: category._id,
         productName: product.name,
+        unit: product.unit ?? ProductUnitType.PCT,
         categoryName: category.name,
         image: await this.fileHelper.url(product.images[0]),
         quantity: cartItem.quantity,

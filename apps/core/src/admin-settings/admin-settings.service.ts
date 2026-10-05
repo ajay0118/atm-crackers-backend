@@ -14,7 +14,7 @@ const DEFAULT_SETTINGS = {
   storeName: 'ATM Crackers Sivakasi',
   tagline: '',
   gstin: '',
-  supportPhone: '',
+  supportPhones: [],
   address: '',
   receiptFooterMessage: '',
   logoUrl: '',
@@ -33,7 +33,28 @@ export class AdminSettingsService {
       .findOne({ key: DEFAULT_SETTINGS.key })
       .lean()
       .exec();
-    if (existing) return existing;
+    if (existing) {
+      // Migrate the old single-phone field for settings created before array support.
+      if (
+        (!Array.isArray((existing as any).supportPhones) ||
+          (existing as any).supportPhones.length === 0) &&
+        typeof (existing as any).supportPhone === 'string' &&
+        (existing as any).supportPhone.trim()
+      ) {
+        return this.settingsModel
+          .findOneAndUpdate(
+            { key: DEFAULT_SETTINGS.key },
+            {
+              $set: { supportPhones: [(existing as any).supportPhone.trim()] },
+              $unset: { supportPhone: 1 },
+            },
+            { returnDocument: 'after' },
+          )
+          .lean()
+          .exec();
+      }
+      return existing;
+    }
     return this.settingsModel.create(DEFAULT_SETTINGS);
   }
 
@@ -87,6 +108,7 @@ export class AdminSettingsService {
 
   async uploadLogo(file: UploadedImageFile) {
     const settings = await this.getOrCreate();
+    if (!settings) throw new BadRequestException('Store settings not found');
     const oldKey = settings.logoUrl;
     const key = await this.fileHelper.upload(file, 'store/logo');
     const updated = await this.settingsModel
@@ -106,6 +128,7 @@ export class AdminSettingsService {
 
   async deleteLogo() {
     const settings = await this.getOrCreate();
+    if (!settings) throw new BadRequestException('Store settings not found');
     const oldKey = settings.logoUrl;
     await this.settingsModel
       .updateOne({ key: DEFAULT_SETTINGS.key }, { $set: { logoUrl: '' } })

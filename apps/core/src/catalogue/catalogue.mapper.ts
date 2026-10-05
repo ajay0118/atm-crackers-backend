@@ -1,4 +1,17 @@
+import { ProductUnitType } from '@libs/contracts/enums/common.enum';
+
 type MongoIdLike = { toString(): string } | string;
+
+export function productUnitLabel(unit?: ProductUnitType): string {
+  switch (unit) {
+    case ProductUnitType.BOX:
+      return '1 Box';
+    case ProductUnitType.PIECE:
+      return '1 Piece';
+    default:
+      return '1 Pct';
+  }
+}
 
 export interface CategoryObject {
   _id?: MongoIdLike;
@@ -37,6 +50,7 @@ export interface ProductObject {
   _id?: MongoIdLike;
   category?: MongoIdLike | ProductCategoryObject;
   name?: string;
+  unit?: ProductUnitType;
   slug?: string;
   description?: string;
   images?: string[];
@@ -62,6 +76,8 @@ export interface ProductResponse {
     displayOrder?: number;
   };
   name?: string;
+  unit?: ProductUnitType;
+  unitLabel?: string;
   slug?: string;
   description?: string;
   images?: string[];
@@ -124,6 +140,8 @@ export function mapProduct(product: ProductObject): ProductResponse {
         }
       : undefined,
     name: product.name,
+    unit: product.unit ?? ProductUnitType.PCT,
+    unitLabel: productUnitLabel(product.unit),
     slug: product.slug,
     description: product.description,
     images: product.images,

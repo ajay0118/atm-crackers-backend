@@ -13,6 +13,7 @@ import {
 import { Category } from '@libs/contracts/category/category.schema';
 import {
   CommonStatusType,
+  ProductUnitType,
   StockStatusType,
 } from '@libs/contracts/enums/common.enum';
 import { OfferPricingService } from '../offer/offer-pricing.service';
@@ -81,6 +82,8 @@ export class CartService {
       categoryId: string;
       category: { id: string; name: string; slug: string };
       name: string;
+      unit: ProductUnitType;
+      unitLabel: string;
       images: string[];
       quantity: number;
       mrp: number;
@@ -103,6 +106,13 @@ export class CartService {
             slug: category.slug,
           },
           name: product.name,
+          unit: product.unit ?? ProductUnitType.PCT,
+          unitLabel:
+            product.unit === ProductUnitType.BOX
+              ? '1 Box'
+              : product.unit === ProductUnitType.PIECE
+                ? '1 Piece'
+                : '1 Pct',
           images: await this.fileHelper.urls(product.images),
           quantity: item.quantity,
           mrp: product.mrp,
