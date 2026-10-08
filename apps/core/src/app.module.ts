@@ -19,6 +19,7 @@ import { AdminOfferModule } from './admin-offer/admin-offer.module';
 import { OfferModule } from './offer/offer.module';
 import { AdminPosModule } from './admin-pos/admin-pos.module';
 import { FileModule } from './common/file/file.module';
+import { AdminBackupModule } from './admin-backup/admin-backup.module';
 
 @Module({
   imports: [
@@ -60,6 +61,7 @@ import { FileModule } from './common/file/file.module';
     OfferModule,
     AdminPosModule,
     FileModule,
+    AdminBackupModule,
   ],
   controllers: [AppController],
   providers: [AppService],
