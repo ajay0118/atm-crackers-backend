@@ -71,7 +71,7 @@ export class CartService {
       .findOneAndUpdate(
         { cartKey },
         { $setOnInsert: { cartKey, items: [] } },
-        { new: true, upsert: true },
+        { returnDocument: 'after', upsert: true },
       )
       .exec();
   }
